@@ -6,10 +6,7 @@ This branch is device for building of the LineageOS 13.0 and Android Marshmallow
 ---
 
 # About Device
-
-![UMi MAX](http://www.umidigi.com/page-umi_max_overview.html "UMi MAX")
-
-The UMi MAX (codenamed _"MAX"_) is a mid range smartphone from UMi.
+The ![UMi MAX](http://www.umidigi.com/page-umi_max_overview.html "UMi MAX") (codenamed _"MAX"_) is a mid range smartphone from UMi.
 
 
 ### Specifications
