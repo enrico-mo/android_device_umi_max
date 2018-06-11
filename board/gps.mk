@@ -14,7 +14,6 @@
 # limitations under the License.
 #
 
-# Prebuilt bootimg
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilts/boot.img:boot.img
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000 # bootopt=64S3,32N2,64N2
+# GPS
+BOARD_GPS_LIBRARIES := true
+BOARD_MEDIATEK_USES_GPS := true
