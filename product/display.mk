@@ -1,3 +1,2 @@
 # Display
-PRODUCT_PACKAGES += \
-	libion
+PRODUCT_PACKAGES += libion

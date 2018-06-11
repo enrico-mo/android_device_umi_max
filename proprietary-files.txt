@@ -6,11 +6,7 @@ bin/atcid
 bin/atci_service
 bin/ccci_fsd
 bin/ccci_mdinit
-bin/gsm0710muxd
-bin/gsm0710muxdmd2
 bin/md_ctrl
-bin/mtkrild
-bin/mtkrildmd2
 bin/muxreport
 bin/netdiag
 bin/pppd_dt
@@ -84,23 +80,12 @@ bin/batterywarning
 bin/fuelgauged
 bin/kpoc_charger
 bin/spm_loader
-bin/thermal
-bin/thermald
-bin/thermalloadalgod
-bin/thermal_manager
 lib{,64}/libperfservicenative.so
 lib/libmtcloader.so
 lib/libfgauge.so
 lib{,64}/libmtklimiter.so
 lib/libthermalalgo.so
 lib{,64}/libperfservice.so
-etc/.tp/.ht120.mtc
-etc/.tp/.thermal_meta.conf
-etc/.tp/.thermal_policy_00
-etc/.tp/.thermal_policy_01
-etc/.tp/.thermal_policy_02
-etc/.tp/thermal.conf
-etc/.tp/thermal.off.conf
 etc/firmware/pcm_deepidle.bin
 etc/firmware/pcm_deepidle_by_mp1.bin
 etc/firmware/pcm_mcdi_ddrdfs.bin
@@ -171,7 +156,6 @@ etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
 etc/firmware/mt6627/mt6627_fm_v4_patch.bin
 etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
 etc/firmware/mt6627/mt6627_fm_v5_patch.bin
-etc/fmr/mt6627_fm_cust.cfg
 
 # Camera
 bin/matv
@@ -416,9 +400,6 @@ etc/firmware/ROMv2_lm_patch_1_0_hdr.bin
 etc/firmware/ROMv2_lm_patch_1_1_hdr.bin
 etc/firmware/WIFI_RAM_CODE_6755
 etc/firmware/WMT_SOC.cfg
-etc/wifi/p2p_supplicant_overlay.conf
-etc/wifi/wpa_supplicant.conf
-etc/wifi/wpa_supplicant_overlay.conf
 
 # WV DRM
 vendor/lib/libwvdrm_L3.so

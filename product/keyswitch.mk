@@ -1,1 +1,2 @@
-PRODUCT_PACKAGES += KeySwitch
+PRODUCT_PACKAGES += \
+    KeySwitch
