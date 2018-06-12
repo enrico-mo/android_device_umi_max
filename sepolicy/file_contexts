@@ -178,7 +178,7 @@
 /system/bin/atcid u:object_r:atcid_exec:s0
 /system/bin/atci_service u:object_r:atci_service_exec:s0
 /system/bin/audiocmdservice_atci u:object_r:audiocmdservice_atci_exec:s0
-/system/bin/autokd u:object_r:autokd_exec:s0
+#/system/bin/autokd u:object_r:autokd_exec:s0
 /system/bin/batterywarning u:object_r:batterywarning_exec:s0
 /system/bin/bmm050d u:object_r:bmm050d_exec:s0
 /system/bin/boot_logo_updater u:object_r:boot_logo_updater_exec:s0
@@ -240,3 +240,63 @@
 # WK:18.27
 # Custom File
 /custom(/.*)?		u:object_r:custom_file:s0
+
+/dev/socket/atci-service(/.*)? u:object_r:atci_service_socket:s0
+
+/dev/block/mtd(.*)?     u:object_r:mtd_device:s0
+/dev/ubi_ctrl u:object_r:mtd_device:s0
+/dev/ubi[_0-9]* u:object_r:mtd_device:s0
+
+/dev/ttyUSB0         u:object_r:tty_device:s0
+/dev/ttyUSB1         u:object_r:tty_device:s0
+/dev/ttyUSB2         u:object_r:tty_device:s0
+/dev/ttyUSB3         u:object_r:tty_device:s0
+/dev/ttyUSB4         u:object_r:tty_device:s0
+
+/dev/emd.* u:object_r:emd_device:s0
+
+/dev/qemu_pipe(/.*)? u:object_r:qemu_pipe_device:s0
+
+/dev/ttyACM0        u:object_r:ttyACM_device:s0
+
+/dev/m_batch_misc(/.*)? u:object_r:m_batch_misc_device:s0
+/dev/misc(/.*)? u:object_r:misc_device:s0
+
+/sys/power/vcorefs/pwr_ctrl -- u:object_r:sysfs_vcorefs_pwrctrl:s0
+
+/dev/socket/atci-audio(/.*)? u:object_r:atci_audio_socket:s0
+
+/dev/pvr_sync(/.*)? u:object_r:gpu_device:s0
+
+/dev/block/mmcblk0 u:object_r:mmcblk0_block_device:s0
+
+/dev/socket/statusd u:object_r:statusd_socket:s0
+/system/bin/statusd u:object_r:statusd_exec:s0
+
+/dev/socket/rild-atci-c2k(/.*)? u:object_r:rild_atci_c2k_socket:s0
+
+/system/bin/viarild u:object_r:viarild_exec:s0
+
+/data/misc/akmd_set.txt u:object_r:akmd8963_access_file1:s0
+/data/misc/PDC.ini u:object_r:akmd8963_access_file2:s0
+
+#############################
+# sysfs files
+#
+#/sys/bus/platform/drivers/msensor/daemon2 u:object_r:msensord_daemon2:s0
+/sys/class/invensense_daemon_class/invensense_daemon_device(/.*)?  u:object_r:gyroscope_mpud6050_file:s0
+/sys/devices/platform/gsensor/driver(/.*)?	u:object_r:sysfs_gsensor_file:s0
+/sys/devices/platform/msensor/driver(/.*)?	u:object_r:sysfs_msensor_file:s0
+#/sys/devices/virtual/misc/scp(/.*)?  u:object_r:sysfs_scp:s0
+#/system/bin/istd8303 u:object_r:istd8303_exec:s0
+/data/misc/sensor.log		u:object_r:bmm050_sensor_log_file:s0
+
+/data/core(/.*)? u:object_r:aee_core_data_file:s0
+/data/aee_exp(/.*)?  u:object_r:aee_exp_data_file:s0
+
+/data/anr/SF_RTT(/.*)? u:object_r:sf_rtt_file:s0
+
+/dev/mt6605 u:object_r:mt6605_device:s0
+
+/dev/camera-sysram(/.*)? u:object_r:camera_sysram_device:s0
+/dev/DW9714AF(/.*)? u:object_r:DW9714AF_device:s0

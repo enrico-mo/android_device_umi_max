@@ -6,3 +6,15 @@ gps.gps.version u:object_r:mnld_prop:s0
 ril.mux. u:object_r:gsm0710muxd_prop:s0
 
 debug.mdlogger u:object_r:debug_mdlogger_prop:s0
+
+# WK:18.27
+#
+persist.ril u:object_r:persist_ril_prop:s0
+ril.cdma.report      u:object_r:ril_cdma_report_prop:s0
+ril.active.md        u:object_r:ril_active_md_prop:s0
+ril.mux.report.case  u:object_r:ril_mux_report_case_prop:s0
+ctl.muxreport-daemon u:object_r:ctl_muxreport-daemon_prop:s0
+persist.service.atci.   u:object_r:persist_service_atci_prop:s0
+ctl.pppd_gprs   u:object_r:pppd_gprs_prop:s0
+ctl.viarild       u:object_r:ctl_viarild_prop:s0
+cdma. u:object_r:cdma_prop:s0

@@ -86,3 +86,17 @@ type oemkeystore_block_device, dev_type;
 type ppl_block_device, dev_type;
 type protect1_block_device, dev_type;
 type protect2_block_device, dev_type;
+
+# WK:18.27
+#
+type eemcs_device, dev_type;
+type emd_device, dev_type;
+type qemu_pipe_device, dev_type;
+type ttyACM_device, dev_type;
+type m_batch_misc_device, dev_type;
+type misc_device, dev_type;
+type misc2_device, dev_type;
+type mmcblk0_block_device, dev_type;
+type mt6605_device, dev_type;
+type camera_sysram_device, dev_type;
+type DW9714AF_device, dev_type;

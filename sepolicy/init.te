@@ -1,1 +1,5 @@
 allow init logd:dir getattr;
+
+# WK:18.27
+#
+allow init mtd_device:chr_file { ioctl getattr };

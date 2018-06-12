@@ -2,3 +2,20 @@ type terservice_prop, property_type;
 type mnld_prop, property_type;
 type gsm0710muxd_prop, property_type;
 type debug_mdlogger_prop, property_type;
+
+# WK:18.27
+#
+type persist_ril_prop, property_type;
+type ril_cdma_report_prop, property_type;
+#=============allow ccci_mdinit to set ril_active_md_prop==============
+type ril_active_md_prop, property_type;
+type ril_mux_report_case_prop, property_type;
+type ctl_muxreport-daemon_prop, property_type;
+type persist_service_atci_prop, property_type;
+
+type pppd_gprs_prop, property_type;
+
+#=============allow viarild to start property==============
+type ctl_viarild_prop, property_type;
+
+type cdma_prop, property_type;
