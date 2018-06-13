@@ -396,21 +396,21 @@
 /system/bin/fuelgauged u:object_r:fuelgauged_exec:s0
 /system/bin/ged_srv u:object_r:ged_srv_exec:s0
 /system/bin/gas_srv    u:object_r:gas_srv_exec:s0
-#/system/bin/kpoc_charger u:object_r:kpoc_charger_exec:s0
-#/system/bin/geomagneticd u:object_r:geomagneticd_exec:s0
-#/system/bin/GoogleOtaBinder u:object_r:GoogleOtaBinder_exec:s0
+/system/bin/kpoc_charger u:object_r:kpoc_charger_exec:s0
+/system/bin/geomagneticd u:object_r:geomagneticd_exec:s0
+/system/bin/GoogleOtaBinder u:object_r:GoogleOtaBinder_exec:s0
 /system/bin/gsm0710muxdmd2 u:object_r:gsm0710muxdmd2_exec:s0
 /system/bin/gsm0710muxd u:object_r:gsm0710muxd_exec:s0
 /system/bin/guiext-server u:object_r:guiext-server_exec:s0
-#/system/bin/icusbd u:object_r:icusbd_exec:s0
-#/system/bin/init.gprs-pppd u:object_r:zpppd_gprs_exec:s0
-#/system/bin/ipod u:object_r:ipod_exec:s0
-#/system/bin/ipo_swap u:object_r:ipo_swap_exec:s0
-#/system/bin/launchpppoe u:object_r:launchpppoe_exec:s0
-#/system/bin/matv u:object_r:matv_exec:s0
+/system/bin/icusbd u:object_r:icusbd_exec:s0
+/system/bin/init.gprs-pppd u:object_r:zpppd_gprs_exec:s0
+/system/bin/ipod u:object_r:ipod_exec:s0
+/system/bin/ipo_swap u:object_r:ipo_swap_exec:s0
+/system/bin/launchpppoe u:object_r:launchpppoe_exec:s0
+/system/bin/matv u:object_r:matv_exec:s0
 #/system/bin/mc6420d u:object_r:mc6420d_exec:s0
 /system/bin/mcDriverDaemon u:object_r:mobicore_exec:s0
-#/system/bin/mdlogger u:object_r:mdlogger_exec:s0
+/system/bin/mdlogger u:object_r:mdlogger_exec:s0
 #/system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
 #/system/bin/memsicd u:object_r:memsicd_exec:s0
 #/system/bin/meta_tst u:object_r:meta_tst_exec:s0
@@ -496,4 +496,4 @@
 # Fingerprint device
 /dev/esfp0(/.*)? u:object_r:esfp0_device:s0
 # Fingerprint: ET320 etsd
-#/system/bin/etsd u:object_r:etsd_exec:s0
+/system/bin/etsd u:object_r:etsd_exec:s0
