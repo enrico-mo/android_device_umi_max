@@ -1,5 +1,32 @@
+# ==============================================
+# Policy File of /system/bin/MtkCodecService Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type MtkCodecService_exec , exec_type, file_type;
 type MtkCodecService ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+
+# Date : 2014/09/10
+# Operation : Migration
+# Purpose : allow Binder IPC 
 binder_use(MtkCodecService)
+
+# Date : 
+# Operation : Migration
+# Purpose : allow Binder IPC
+
+# Date : W14.43
+# Operation : selinux inforce
+# Purpose : for L : add for ape playback
 
 init_daemon_domain(MtkCodecService)
 allow MtkCodecService mediaserver:binder call;

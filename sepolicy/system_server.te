@@ -14,5 +14,5 @@ allow system_server guiext-server_service:service_manager find;
 allow system_server zygote:binder { call impersonate };
 allow system_server hwmsensor_device:chr_file { read ioctl open };
 
-allow system_server mnl_file:dir { write add_name };
-allow system_server mnl_file:sock_file { write create setattr };
+#allow system_server mnl_file:dir { write add_name };
+#allow system_server mnl_file:sock_file { write create setattr };
