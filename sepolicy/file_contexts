@@ -408,19 +408,19 @@
 /system/bin/ipo_swap u:object_r:ipo_swap_exec:s0
 /system/bin/launchpppoe u:object_r:launchpppoe_exec:s0
 /system/bin/matv u:object_r:matv_exec:s0
-#/system/bin/mc6420d u:object_r:mc6420d_exec:s0
+/system/bin/mc6420d u:object_r:mc6420d_exec:s0
 /system/bin/mcDriverDaemon u:object_r:mobicore_exec:s0
 /system/bin/mdlogger u:object_r:mdlogger_exec:s0
-#/system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
-#/system/bin/memsicd u:object_r:memsicd_exec:s0
-#/system/bin/meta_tst u:object_r:meta_tst_exec:s0
+/system/bin/memsicd3416x u:object_r:memsicd3416x_exec:s0
+/system/bin/memsicd u:object_r:memsicd_exec:s0
+/system/bin/meta_tst u:object_r:meta_tst_exec:s0
  
-#/system/bin/mmc_ffu u:object_r:mmc_ffu_exec:s0
-#/system/bin/emmc_rw_debug u:object_r:emmc_rw_debug_exec:s0
-#/system/bin/mvg_app u:object_r:mvg_app_exec:s0
-#/system/bin/mmp u:object_r:mmp_exec:s0
-#/system/bin/mobile_log_d u:object_r:mobile_log_d_exec:s0
-#/system/bin/mpud6050 u:object_r:mpud6050_exec:s0
+/system/bin/mmc_ffu u:object_r:mmc_ffu_exec:s0
+/system/bin/emmc_rw_debug u:object_r:emmc_rw_debug_exec:s0
+/system/bin/mvg_app u:object_r:mvg_app_exec:s0
+/system/bin/mmp u:object_r:mmp_exec:s0
+/system/bin/mobile_log_d u:object_r:mobile_log_d_exec:s0
+/system/bin/mpud6050 u:object_r:mpud6050_exec:s0
 #/system/bin/msensord u:object_r:msensord_exec:s0
 /system/bin/mtk_agpsd u:object_r:mtk_agpsd_exec:s0
 /system/bin/MtkCodecService u:object_r:MtkCodecService_exec:s0
@@ -428,14 +428,14 @@
 /system/bin/mtkrild u:object_r:mtkrild_exec:s0
 #/system/bin/muxreport u:object_r:muxreport_exec:s0
 #/system/bin/netdiag u:object_r:netdiag_exec:s0
-#/system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
+/system/bin/nvram_agent_binder u:object_r:nvram_agent_binder_exec:s0
 
 # Vanzo:yucheng on: Tue, 27 Jan 2015 20:54:48 +0800
 # added for nvram backup
-#/system/bin/nvram_backup_binder u:object_r:nvram_backup_binder_exec:s0
+/system/bin/nvram_backup_binder u:object_r:nvram_backup_binder_exec:s0
 # End of Vanzo: yucheng
 
-#/system/bin/nvram_daemon u:object_r:nvram_daemon_exec:s0
+/system/bin/nvram_daemon u:object_r:nvram_daemon_exec:s0
 #/system/bin/orientationd u:object_r:orientationd_exec:s0
 #/system/bin/permission_check u:object_r:permission_check_exec:s0
 #/system/bin/poad u:object_r:poad_exec:s0
