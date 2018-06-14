@@ -444,22 +444,22 @@
 /system/bin/pppd_via u:object_r:pppd_via_exec:s0
 /system/bin/pq u:object_r:pq_exec:s0
 /system/bin/program_binary_service u:object_r:program_binary_exec:s0
-#/system/bin/resize2fs  --  u:object_r:resize_exec:s0
-#/system/bin/resize_ext4  --  u:object_r:resize_exec:s0
-#/system/bin/resmon u:object_r:resmon_exec:s0
-#/system/bin/rild_dongle u:object_r:ril-3gddaemon_exec:s0
-#/system/bin/s62xd u:object_r:s62xd_exec:s0
+/system/bin/resize2fs  --  u:object_r:resize_exec:s0
+/system/bin/resize_ext4  --  u:object_r:resize_exec:s0
+/system/bin/resmon u:object_r:resmon_exec:s0
+/system/bin/rild_dongle u:object_r:ril-3gddaemon_exec:s0
+/system/bin/s62xd u:object_r:s62xd_exec:s0
 /system/bin/slpd u:object_r:slpd_exec:s0
-#/system/bin/sn u:object_r:sn_exec:s0
-#/system/bin/statusd u:object_r:statusd_exec:s0
-#/system/bin/terservice u:object_r:terservice_exec:s0
+/system/bin/sn u:object_r:sn_exec:s0
+/system/bin/statusd u:object_r:statusd_exec:s0
+/system/bin/terservice u:object_r:terservice_exec:s0
 /system/bin/thermald u:object_r:thermald_exec:s0
 /system/bin/thermal_manager u:object_r:thermal_manager_exec:s0
 /system/bin/thermalloadalgod u:object_r:thermalloadalgod_exec:s0  
 /system/bin/thermal u:object_r:thermal_exec:s0
-#/system/bin/tiny_mkswap u:object_r:tiny_mkswap_exec:s0
-#/system/bin/tiny_swapon u:object_r:tiny_swapon_exec:s0
-#/system/bin/tune2fs u:object_r:tune2fs_exec:s0
+/system/bin/tiny_mkswap u:object_r:tiny_mkswap_exec:s0
+/system/bin/tiny_swapon u:object_r:tiny_swapon_exec:s0
+/system/bin/tune2fs u:object_r:tune2fs_exec:s0
 /system/bin/viarild u:object_r:viarild_exec:s0
 #/system/bin/volte_imcb u:object_r:volte_imcb_exec:s0
 #/system/bin/volte_stack u:object_r:volte_stack_exec:s0
