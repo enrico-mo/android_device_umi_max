@@ -477,14 +477,14 @@
 /system/xbin/mnld u:object_r:mnld_exec:s0
 /system/bin/md_ctrl u:object_r:md_ctrl_exec:s0
 /system/bin/cmddumper u:object_r:cmddumper_exec:s0
-#/system/bin/epdg_wod u:object_r:epdg_wod_exec:s0
-#/system/bin/ipsec u:object_r:ipsec_exec:s0
-#/system/bin/charon u:object_r:charon_exec:s0
-#/system/bin/starter u:object_r:starter_exec:s0
-#/system/bin/stroke u:object_r:stroke_exec:s0
-#/system/bin/istd8303 u:object_r:istd8303_exec:s0
-#/system/bin/spm_loader u:object_r:spm_loader_exec:s0
-#/system/bin/vtservice u:object_r:vtservice_exec:s0
+/system/bin/epdg_wod u:object_r:epdg_wod_exec:s0
+/system/bin/ipsec u:object_r:ipsec_exec:s0
+/system/bin/charon u:object_r:charon_exec:s0
+/system/bin/starter u:object_r:starter_exec:s0
+/system/bin/stroke u:object_r:stroke_exec:s0
+/system/bin/istd8303 u:object_r:istd8303_exec:s0
+/system/bin/spm_loader u:object_r:spm_loader_exec:s0
+/system/bin/vtservice u:object_r:vtservice_exec:s0
 #/system/bin/hotknot_native_service u:object_r:hotknot_native_exec:s0
 
 # Wallpaper file for smartbook

@@ -30,11 +30,11 @@ binder_service(vtservice)
 # Purpose : Add vtservice to support video telephony functionality 
 #           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
 allow vtservice vtservice_service:service_manager add;
-#unix_socket_connect(vtservice, volte_imsvt1, volte_imcb)
+unix_socket_connect(vtservice, volte_imsvt1, volte_imcb)
 unix_socket_connect(vtservice, rild_oem, mtkrild)
 allow vtservice mtkrild:unix_stream_socket connectto;
-#allow vtservice fuse:dir search;
-#allow vtservice fuse:file { read write open };
+allow vtservice fuse:dir search;
+allow vtservice fuse:file { read write open };
 allow vtservice radio_service:service_manager find;
 allow vtservice mediaserver_service:service_manager find;
 allow vtservice power_service:service_manager find;
@@ -42,4 +42,4 @@ allow vtservice power_service:service_manager find;
 # Purpose : for access ccci device
 allow vtservice ccci_device:chr_file { read write open ioctl };
 allow vtservice sysfs:file write;
-#allow vtservice untrusted_app:binder call;
+allow vtservice untrusted_app:binder call;
