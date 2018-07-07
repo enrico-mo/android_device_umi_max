@@ -6,7 +6,7 @@
 # Type Declaration
 # ==============================================
 
-type mdlogger_exec , exec_type, file_type;
+type mdlogger_exec, exec_type, file_type;
 type mdlogger ,domain;
 
 # ==============================================
@@ -76,4 +76,7 @@ allow mdlogger storage_file:lnk_file rw_file_perms;
 allow mdlogger mnt_user_file:dir search;
 allow mdlogger mnt_user_file:lnk_file rw_file_perms;
 allow mdlogger fuse:file create_file_perms;
+
+# 20180623_2212
+type mdlogger_data_file, file_type, data_file_type;
 

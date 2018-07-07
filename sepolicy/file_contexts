@@ -15,7 +15,7 @@
 # Data files
 #
 /data/aee_exp(/.*)?  u:object_r:aee_exp_data_file:s0
-/data/agps_supl(/.*)?    u:object_r:agpsd_data_file:s0
+/data/agps_supl(/.*)? u:object_r:agpsd_data_file:s0
 /data/misc/gps(/.*)?   u:object_r:gps_data_file:s0
 /data/anr/SF_RTT(/.*)? u:object_r:sf_rtt_file:s0
 /data/app/mcRegistry(/.*)? u:object_r:mobicore_data_file:s0
@@ -40,8 +40,8 @@
 /data/misc/ppp(/.*)? u:object_r:ppp_data_file:s0
 /data/.tp(/.*)? u:object_r:thermal_manager_data_file:s0
 /data/misc/radvd(/.*)? u:object_r:radvd_data_file:s0
-/data/misc/sensor.log		u:object_r:bmm050_sensor_log_file:s0
-/data/misc/sensor(/.*)?		u:object_r:sensor_data_file:s0
+/data/misc/sensor.log u:object_r:bmm050_sensor_log_file:s0
+/data/misc/sensor(/.*)? u:object_r:sensor_data_file:s0
 /data/misc/stp_dump(/.*)? u:object_r:stp_dump_data_file:s0
 /data/misc/wide-dhcpv6(/.*)? u:object_r:wide_dhcpv6_data_file:s0
 /data/misc/wpa_supplicant(/.*)? u:object_r:wpa_supplicant_data_file:s0
@@ -65,7 +65,8 @@
 /dev/aal_als(/.*)? u:object_r:aal_als_device:s0
 /dev/accdet(/.*)? u:object_r:accdet_device:s0
 /dev/AD5820AF(/.*)? u:object_r:AD5820AF_device:s0
-/dev/aed[0-9]+ u:object_r:aed_device:s0
+#/dev/aed[0-9]+ u:object_r:aed_device:s0
+/dev/aed[0-1]+ u:object_r:aed_device:s0
 /dev/als_ps(/.*)? u:object_r:als_ps_device:s0
 /dev/ampc0(/.*)? u:object_r:ampc0_device:s0
 /dev/android(/.*)? u:object_r:android_device:s0
@@ -280,9 +281,9 @@
 /dev/tgt(/.*)? u:object_r:tgt_device:s0
 /dev/touch(/.*)? u:object_r:touch_device:s0
 /dev/tpd_em_log(/.*)? u:object_r:tpd_em_log_device:s0
-/dev/ttyC0         u:object_r:gsm0710muxd_device:s0
+/dev/ttyC0 u:object_r:gsm0710muxd_device:s0
 /dev/ttyC1 u:object_r:mdlog_device:s0
-/dev/ttyC2         u:object_r:agps_device:s0
+/dev/ttyC2 u:object_r:agps_device:s0
 /dev/ttyC3 u:object_r:icusb_device:s0
 /dev/ttyGS.* u:object_r:ttyGS_device:s0
 /dev/ttyMT.* u:object_r:ttyMT_device:s0
@@ -334,9 +335,9 @@
 /dev/block/mmcblk1 u:object_r:mmcblk1_block_device:s0
 /dev/block/mmcblk1p1 u:object_r:mmcblk1p1_block_device:s0
 
-/protect_f(/.*)?         u:object_r:protect_f_data_file:s0
-/protect_s(/.*)?         u:object_r:protect_s_data_file:s0
-/persist(/.*)?         u:object_r:persist_data_file:s0
+/protect_f(/.*)? u:object_r:protect_f_data_file:s0
+/protect_s(/.*)? u:object_r:protect_s_data_file:s0
+/persist(/.*)? u:object_r:persist_data_file:s0
 /dev/ttyACM0        u:object_r:ttyACM_device:s0
 /dev/hrm       u:object_r:hrm_device:s0
 /dev/trusty-ipc-dev0 u:object_r:tee_device:s0
@@ -395,7 +396,7 @@
 /system/bin/flashlessd u:object_r:flashlessd_exec:s0
 /system/bin/fuelgauged u:object_r:fuelgauged_exec:s0
 /system/bin/ged_srv u:object_r:ged_srv_exec:s0
-/system/bin/gas_srv    u:object_r:gas_srv_exec:s0
+/system/bin/gas_srv u:object_r:gas_srv_exec:s0
 /system/bin/kpoc_charger u:object_r:kpoc_charger_exec:s0
 /system/bin/geomagneticd u:object_r:geomagneticd_exec:s0
 /system/bin/GoogleOtaBinder u:object_r:GoogleOtaBinder_exec:s0
@@ -497,3 +498,25 @@
 /dev/esfp0(/.*)? u:object_r:esfp0_device:s0
 # Fingerprint: ET320 etsd
 /system/bin/etsd u:object_r:etsd_exec:s0
+
+#20180623_2235
+/data/gps_mnl(/.*)? u:object_r:mnl_file:s0
+/data/mpe_mnl(/.*)? u:object_r:mnl_file:s0
+#/data/mdlog(/.*)? u:object_r:mdlogger_data_file:s0
+/dev/madev0(/.*)? u:object_r:fingerprint_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/flashinfo u:object_r:flashinfo_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/keystore u:object_r:keystore_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/lk2 u:object_r:lk2_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/lk u:object_r:lk_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/md1arm7 u:object_r:md1arm7_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/md1dsp u:object_r:md1dsp_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/md1img u:object_r:md1img_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/md3img u:object_r:md3img_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/metadata u:object_r:metadata_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/misc2 u:object_r:misc2_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/oemkeystore u:object_r:oemkeystore_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/persist u:object_r:persist_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/ppl u:object_r:ppl_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/protect1 u:object_r:protect1_block_device:s0
+/dev/block/platform/mtk-msdc\.0/11230000\.msdc0/by-name/protect2 u:object_r:protect2_block_device:s0
+/data/md_monitor(/.*)? u:object_r:md_monitor_data_file:s0

@@ -31,7 +31,7 @@ include $(LOCAL_PATH)/board/*.mk
 # Prebuilt BOOTIMG & KERNEL
 -include $(LOCAL_PATH)/prebuilts/prebuilt_kernel.mk
 # Source KERNEL (disabled if prebuilt kernel enabled)
--include $(LOCAL_PATH)/kernel/kernel.mk
+#-include $(LOCAL_PATH)/kernel/kernel.mk
 
 # Ramdisk
 PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc

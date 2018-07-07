@@ -6,7 +6,8 @@
 # Type Declaration
 # ==============================================
 
-type boot_logo_updater_exec , exec_type, file_type;
+type boot_logo_updater_exec, exec_type, file_type;
+
 type boot_logo_updater ,domain;
 
 # ==============================================

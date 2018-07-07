@@ -12,3 +12,6 @@ allow fingerprintd fuse:file create_file_perms;
 
 # Fingerprint: ET320 etsd
 allow fingerprintd etsd:binder { call transfer };
+
+# 20180623_2236
+allow fingerprintd fingerprint_device:chr_file { read write open };

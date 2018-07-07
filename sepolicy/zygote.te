@@ -44,7 +44,7 @@ allow zygote platform_app_tmpfs:file write;
 # Date : WK14.46
 # Operation : SQC
 # Purpose : found in sanity test (ALPS01825280)
-allow zygote servicemanager:binder call;
+#allow zygote servicemanager:binder call;
 
 # Date : WK14.49
 # Operation : SQC
@@ -71,3 +71,8 @@ allow zygote untrusted_app_tmpfs:file write;
 # Purpose : for TTLIA
 allow zygote radio:fd use;
 allow zygote radio_tmpfs:file create_file_perms;
+
+# 20180624_0317
+allow zygote activity_service:service_manager find;
+allow zygote servicemanager:binder { call transfer };
+allow zygote system_server:binder { call transfer };

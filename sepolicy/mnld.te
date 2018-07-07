@@ -65,3 +65,9 @@ allow mnld gps_data_file:file create_file_perms;
 # Purpose : for device bring up, not to block early migration/sanity
 allow mnld proc_lk_env:file rw_file_perms;
 
+# 20180624_0246
+allow mnld init:unix_dgram_socket sendto;
+allow mnld nvdata_file:dir search;
+allow mnld nvdata_file:file { read getattr open };
+allow mnld mnl_file:dir { write remove_name add_name };
+allow mnld mnl_file:sock_file { write create unlink setattr };

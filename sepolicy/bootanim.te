@@ -48,3 +48,7 @@ allow bootanim qemu_pipe_device:chr_file rw_file_perms;
 allow bootanim mediaserver_service:service_manager find;
 
 allow bootanim terservice_service:service_manager find;
+
+# 20180622_2250: Added from original umi_max sepolicies
+allow bootanim default_android_service:service_manager find;
+allow bootanim guiext-server_service:service_manager find;

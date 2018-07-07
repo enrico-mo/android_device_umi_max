@@ -268,3 +268,7 @@ allow system_server mtk_mwblacklist_service:service_manager find;
 binder_call(system_server,etsd)
 allow system_server etsd_service:service_manager find;
 allow fingerprintd etsd_service:service_manager find;
+
+# 20180624_0300
+allow system_server mnl_file:dir { write add_name };
+allow system_server mnl_file:sock_file { write create setattr };

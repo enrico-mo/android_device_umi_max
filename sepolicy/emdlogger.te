@@ -96,3 +96,9 @@ allow emdlogger mnt_user_file:dir search;
 allow emdlogger mnt_user_file:lnk_file read;
 #allow emdlogger storage_file:dir search;
 allow emdlogger storage_file:lnk_file read;
+
+# 20180622_2252: Added from umi_max original sepolicies
+allow emdlogger ccci_device:chr_file { read write open };
+allow emdlogger mdlogger_data_file:dir { write search read create open rmdir remove_name add_name relabelto getattr};
+allow emdlogger mdlogger_data_file:fifo_file { read write create open setattr };
+allow emdlogger mdlogger_data_file:file { write read create open rename unlink getattr setattr append};

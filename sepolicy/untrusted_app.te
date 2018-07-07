@@ -72,3 +72,11 @@ allow untrusted_app esfp0_device:chr_file rw_file_perms;
 allow untrusted_app etsd_service:service_manager find;
 allow untrusted_app etsd:binder {call transfer};
 
+# 220180624_0314
+allow untrusted_app battery_service:service_manager find;
+allow untrusted_app block_device:dir { read open };
+allow untrusted_app guiext-server_service:service_manager find;
+allow untrusted_app device:dir { read open };
+allow untrusted_app nvdata_file:dir getattr;
+allow untrusted_app zygote:dir search;
+allow untrusted_app zygote:file { read open };

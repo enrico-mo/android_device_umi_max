@@ -53,32 +53,32 @@ debug.mtk.aee u:object_r:debug_mtk_aee_prop:s0
 debug.bq.dump u:object_r:debug_bq_dump_prop:s0
 
 #=============allow mux==============
-ril.mux.      u:object_r:gsm0710muxd_prop:s0
+ril.mux. u:object_r:gsm0710muxd_prop:s0
 
 #=============allow vold==============
-persist.vold.      u:object_r:vold_prop:s0
-ctl.sdcard         u:object_r:ctl_fuse_prop:s0
+persist.vold. u:object_r:vold_prop:s0
+ctl.sdcard u:object_r:ctl_fuse_prop:s0
 
 #=============allow mdinit==============
-ctl.ril-daemon-mtk   u:object_r:ctl_ril-daemon-mtk_prop:s0
-ctl.ril-daemon-s   u:object_r:ctl_ril-daemon-s_prop:s0
-ctl.ril-daemon-d   u:object_r:ctl_ril-daemon-d_prop:s0
-ctl.ril-daemon-md2   u:object_r:ctl_ril-daemon-md2_prop:s0
-ctl.viarild       u:object_r:ctl_viarild_prop:s0
+ctl.ril-daemon-mtk u:object_r:ctl_ril-daemon-mtk_prop:s0
+ctl.ril-daemon-s u:object_r:ctl_ril-daemon-s_prop:s0
+ctl.ril-daemon-d u:object_r:ctl_ril-daemon-d_prop:s0
+ctl.ril-daemon-md2 u:object_r:ctl_ril-daemon-md2_prop:s0
+ctl.viarild u:object_r:ctl_viarild_prop:s0
 
-ctl.ccci_fsd         u:object_r:ctl_ccci_fsd_prop:s0
-ctl.ccci2_fsd         u:object_r:ctl_ccci2_fsd_prop:s0
-ctl.ccci3_fsd         u:object_r:ctl_ccci3_fsd_prop:s0
-ctl.ccci_rpcd         u:object_r:ctl_ccci_rpcd_prop:s0
-ctl.ccci2_rpcd         u:object_r:ctl_ccci2_rpcd_prop:s0
+ctl.ccci_fsd u:object_r:ctl_ccci_fsd_prop:s0
+ctl.ccci2_fsd u:object_r:ctl_ccci2_fsd_prop:s0
+ctl.ccci3_fsd u:object_r:ctl_ccci3_fsd_prop:s0
+ctl.ccci_rpcd u:object_r:ctl_ccci_rpcd_prop:s0
+ctl.ccci2_rpcd u:object_r:ctl_ccci2_rpcd_prop:s0
 ctl.muxreport-daemon u:object_r:ctl_muxreport-daemon_prop:s0
 
-ril.active.md        u:object_r:ril_active_md_prop:s0
-ril.mux.report.case  u:object_r:ril_mux_report_case_prop:s0
-ril.cdma.report      u:object_r:ril_cdma_report_prop:s0
+ril.active.md u:object_r:ril_active_md_prop:s0
+ril.mux.report.case u:object_r:ril_mux_report_case_prop:s0
+ril.cdma.report u:object_r:ril_cdma_report_prop:s0
 
 #=============allow pppd_via==============
-ctl.pppd_via         u:object_r:ctl_pppd_via_prop:s0
+ctl.pppd_via u:object_r:ctl_pppd_via_prop:s0
 
 #=============allow ppp to set pppoe.ppp0.*========================
 pppoe.ppp0. u:object_r:pppoe_ppp0_prop:s0
@@ -87,23 +87,23 @@ pppoe.ppp0. u:object_r:pppoe_ppp0_prop:s0
 mediatek. u:object_r:mediatek_prop:s0
 
 #=============allow bootanim==============
-persist.bootanim.     u:object_r:bootani_prop:s0
+persist.bootanim. u:object_r:bootani_prop:s0
 
 #=============allow mnld_prop ==============
 gps.clock.type u:object_r:mnld_prop:s0
 gps.gps.version u:object_r:mnld_prop:s0
 
 #=============allow audiohal==============
-streamout.     u:object_r:audiohal_prop:s0
-af.     u:object_r:audiohal_prop:s0
-streamin.     u:object_r:audiohal_prop:s0
-a2dp.     u:object_r:audiohal_prop:s0
-persist.af.     u:object_r:audiohal_prop:s0
+streamout. u:object_r:audiohal_prop:s0
+af. u:object_r:audiohal_prop:s0
+streamin. u:object_r:audiohal_prop:s0
+a2dp. u:object_r:audiohal_prop:s0
+persist.af. u:object_r:audiohal_prop:s0
 
 #=============allow tedongle to set tedongle.*=============
 tedongle.   u:object_r:radio_prop:s0
-ctl.ril-3gddaemon   u:object_r:ctl_ril3gd_prop:s0
-ctl.zpppd_gprs      u:object_r:ctl_zpppdgprs_prop:s0
+ctl.ril-3gddaemon u:object_r:ctl_ril3gd_prop:s0
+ctl.zpppd_gprs u:object_r:ctl_zpppdgprs_prop:s0
 
 #=============allow DM==============
 # persist.dm.lock
@@ -117,10 +117,10 @@ ctl.atci_service u:object_r:ctl_atci_service_prop:s0
 persist.service.atci.   u:object_r:persist_service_atci_prop:s0
 
 #=============allow ipod==============
-ctl.ipod                u:object_r:ctl_ipod_prop:s0
-ctl.ipo_swap            u:object_r:ctl_ipo_swap_prop:s0
-ipo.ipoh.               u:object_r:ipod_prop:s0
-persist.ipoh.           u:object_r:ipod_prop:s0
+ctl.ipod u:object_r:ctl_ipod_prop:s0
+ctl.ipo_swap u:object_r:ctl_ipo_swap_prop:s0
+ipo.ipoh. u:object_r:ipod_prop:s0
+persist.ipoh. u:object_r:ipod_prop:s0
 
 #=============allow wmt ==============
 persist.mtk.wcn u:object_r:wmt_prop:s0

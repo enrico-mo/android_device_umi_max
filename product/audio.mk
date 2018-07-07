@@ -12,6 +12,7 @@ PRODUCT_PACKAGES += \
     tinymix \
     libtinyalsa
 
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_param/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
     $(LOCAL_PATH)/audio/audio_param/PlaybackACF_AudioParam.xml:system/etc/audio_param/PlaybackACF_AudioParam.xml \
@@ -78,3 +79,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_device.xml:system/etc/audio_device.xml \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_em.xml:system/etc/audio_em.xml
+

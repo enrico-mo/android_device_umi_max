@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-#BOARD_USES_MTK_AUDIO := true
+BOARD_USES_MTK_AUDIO := true
 # DA TESTARE
 HAVE_HTC_AUDIO_DRIVER := false
 BOARD_USES_GENERIC_AUDIO := false

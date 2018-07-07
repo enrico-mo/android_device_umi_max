@@ -192,12 +192,12 @@ type ppl_block_device, dev_type;
 # Fingerprint device
 type esfp0_device, dev_type, mlstrustedobject;
 
-#
+# 20180624_0002
 type fingerprint_device, dev_type;
-#type flashinfo_block_device, dev_type;
-#type lk_block_device, dev_type;
-#type lk2_block_device, dev_type;
-#type md1arm7_block_device, dev_type;
-#type md1dsp_block_device, dev_type;
-#type md1img_block_device, dev_type;
-#type md3img_block_device, dev_type;
+type flashinfo_block_device, dev_type;
+type lk_block_device, dev_type;
+type lk2_block_device, dev_type;
+type md1arm7_block_device, dev_type;
+type md1dsp_block_device, dev_type;
+type md1img_block_device, dev_type;
+type md3img_block_device, dev_type;

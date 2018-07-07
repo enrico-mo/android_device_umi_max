@@ -134,18 +134,15 @@ public class KeyHandler implements DeviceKeyHandler {
             }
             if (!down) {
                 //cancelPreloadRecentApps();
-
                 mHomePressed = false;
                 if (mHomeConsumed) {
                     mHomeConsumed = false;
                     return true;
                 }
-
                 if (canceled) {
                     Log.i(TAG, "Ignoring HOME; event canceled.");
                     return true;
                 }
-
                 // If an incoming call is ringing, HOME is totally disabled.
                 // (The user is already on the InCallUI at this point,
                 // and his ONLY options are to answer or reject the call.)
@@ -154,7 +151,6 @@ public class KeyHandler implements DeviceKeyHandler {
                     Log.i(TAG, "Ignoring HOME; there's a ringing incoming call.");
                     return true;
                 }
-
                     mHandler.removeCallbacks(mHomeDoubleTapTimeoutRunnable); // just in case
                     mHomeDoubleTapPending = true;
                     mHandler.postDelayed(mHomeDoubleTapTimeoutRunnable,
