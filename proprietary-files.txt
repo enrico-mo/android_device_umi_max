@@ -118,8 +118,6 @@ lib{,64}/hw/sensors.mt6755.so
 lib{,64}/lib3a_sample.so
 lib{,64}/lib3a.so
 lib{,64}/liba3m.so
-lib{,64}/libaal_cust.so
-lib{,64}/libaal.so
 lib{,64}/libacdk.so
 lib{,64}/libaed.so
 lib{,64}/lib_agoldcam_s5k3l8_mipi_raw_SY_50013A1_v1.so
@@ -141,13 +139,11 @@ lib{,64}/libaudiocomponentengine.so
 lib{,64}/libaudiocustparam.so
 lib{,64}/libaudiodcrflt.so
 lib{,64}/libaudio_param_parser.so
-lib{,64}/libaudio-resampler.so
 lib{,64}/libaudiosetting.so
 lib{,64}/libbessound_hd_mtk.so
 lib{,64}/libblisrc32.so
 lib{,64}/libblisrc.so
 lib{,64}/libbluetoothem_mtk.so
-lib{,64}/libbluetooth_hw_test.so
 lib{,64}/libbluetooth_mtk_pure.so
 lib{,64}/libbluetooth_mtk.so
 lib{,64}/libbluetooth_relayer.so
@@ -175,7 +171,6 @@ lib{,64}/libcam.hal3a.v3.so
 lib{,64}/libcam.halsensor.so
 lib{,64}/libcam_hwutils.so
 lib{,64}/libcam.iopipe.so
-lib{,64}/libcam.jni.lomohaljni.so
 lib{,64}/libcam.metadataprovider.so
 lib{,64}/libcam.metadata.so
 lib{,64}/libcam_mmp.so
@@ -186,8 +181,6 @@ lib{,64}/libcam.utils.cpuctrl.so
 lib{,64}/libcam.utils.sensorlistener.so
 lib{,64}/libcam_utils.so
 lib{,64}/libccci_util.so
-lib{,64}/libcomutils.so
-lib{,64}/libcurl.so
 lib{,64}/libcustom_jni.so
 lib{,64}/libcustom_nvram.so
 lib{,64}/libcustom_prop.so
@@ -330,10 +323,7 @@ lib{,64}/volte_imsm.so
 lib/drm/libdrmmtkplugin.so
 lib/hw/fingerprint.default.so
 lib/libaal_cust.so
-lib/libamrvt.so
-lib/libamr_wrap.so
 lib/libaudiomtkdcremoval.so
-lib/libawb_wrap.so
 lib/libbessurround_mtk.so
 lib/libbt-vendor.so
 lib/libDR.so

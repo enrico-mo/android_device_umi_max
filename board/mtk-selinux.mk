@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS := \
+       $(LOCAL_PATH)/sepolicy
