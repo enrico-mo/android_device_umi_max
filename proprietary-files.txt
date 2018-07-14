@@ -138,9 +138,11 @@ lib{,64}/libaudiocompensationfilter.so
 lib{,64}/libaudiocomponentengine.so
 lib{,64}/libaudiocustparam.so
 lib{,64}/libaudiodcrflt.so
+lib/libaudiomtkdcremoval.so
 lib{,64}/libaudio_param_parser.so
 lib{,64}/libaudiosetting.so
 lib{,64}/libbessound_hd_mtk.so
+lib/libbessurround_mtk.so
 lib{,64}/libblisrc32.so
 lib{,64}/libblisrc.so
 lib{,64}/libbluetoothem_mtk.so
