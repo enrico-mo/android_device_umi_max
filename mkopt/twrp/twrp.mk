@@ -21,7 +21,7 @@ RECOVERY_VARIANT := twrp
 
 #
 RECOVERY_SDCARD_ON_DATA := true
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/mkopt/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
 TW_DEFAULT_BRIGHTNESS := 80
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"

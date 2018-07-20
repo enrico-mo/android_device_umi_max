@@ -236,12 +236,8 @@ lib{,64}/libmtkjpeg.so
 lib{,64}/libmtklimiter.so
 lib{,64}/libmtk_mmutils.so
 lib{,64}/libMtkOmxCore.so
-lib{,64}/libmtkplayer.so
 lib{,64}/libmtkshifter.so
-lib{,64}/libmtksqlite3_android.so
-lib{,64}/libmtksqlite3_custom.so
 lib{,64}/libMtkVideoTranscoder.so
-lib{,64}/libmtk_vt_wrapper.so
 lib{,64}/libn3d3a.so
 lib{,64}/libnativecheck-jni.so
 lib{,64}/libnetutils.so
@@ -250,7 +246,6 @@ lib{,64}/libnvram_daemon_callback.so
 lib{,64}/libnvram_platform.so
 lib{,64}/libnvram_sec.so
 lib{,64}/libnvram.so
-lib{,64}/libOpenCLIcd.so
 lib{,64}/libperfservicenative.so
 lib{,64}/libperfservice.so
 lib{,64}/libpq_cust.so
@@ -259,12 +254,7 @@ lib{,64}/libPQDCjni.so
 lib{,64}/libPQjni.so
 lib{,64}/libpq_prot.so
 lib{,64}/libpqservice.so
-lib{,64}/librilmtkmd2.so
-lib{,64}/librilmtk.so
-lib{,64}/libRSDriver_mtk.so
-lib{,64}/libsink.so
 lib{,64}/libSonyIMX230PdafLibrary.so
-lib{,64}/libsource.so
 lib{,64}/libspeech_enh_lib.so
 lib{,64}/libstagefrighthw.so
 lib{,64}/libSwJpgCodec.so
@@ -299,12 +289,10 @@ lib/libmemoryDumpEncoder.so
 lib/libmhalImageCodec.so
 lib/libmnl.so
 lib/libmp4enc_sa.ca7.so
-lib/libmp4enc_xa.ca7.so
 lib/libmpe.driver.so
 lib/libmpe.sensorlistener.so
 lib/libm.so
 lib/libmtcloader.so
-lib/libMTKAudioTimeStretch.so
 lib/libMtkOmxAdpcmDec.so
 lib/libMtkOmxAdpcmEnc.so
 lib/libMtkOmxAlacDec.so
@@ -318,9 +306,6 @@ lib/libMtkOmxRawDec.so
 lib/libMtkOmxVdecEx.so
 lib/libMtkOmxVenc.so
 lib/libMtkOmxVorbisEnc.so
-lib/libmtk_vt_service.so
-lib/libmtk_vt_swip.so
-lib/libmtk_vt_utils.so
 lib/libpq_cust.so
 lib/libshowlogo.so
 lib/libSwJpgCodec.so

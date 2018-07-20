@@ -26,12 +26,12 @@ include $(LOCAL_PATH)/board/*.mk
 
 ###########################################################################
 # TWRP. ENABLED ONLY IN RECOVERY COMPILATION
-#include $(LOCAL_PATH)/twrp.mk
+#include $(LOCAL_PATH)/mkopt/twrp/twrp.mk
 
 # Prebuilt BOOTIMG & KERNEL
--include $(LOCAL_PATH)/prebuilts/prebuilt_kernel.mk
+-include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
 # Source KERNEL (disabled if prebuilt kernel enabled)
-#-include $(LOCAL_PATH)/kernel/kernel.mk
+#-include $(LOCAL_PATH)/mkopt/kernel/sources/kernel.mk
 
 # Ramdisk
 PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc

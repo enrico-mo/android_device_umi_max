@@ -88,6 +88,7 @@ type aed_device, dev_type;
 type ccci_device, dev_type;
 type ccci_monitor_device, dev_type;
 type gsm0710muxd_device, dev_type;
+type gsm0710muxdmd2_device, dev_type;
 type eemcs_device, dev_type;
 type emd_device, dev_type;
 type mt6605_device, dev_type;
