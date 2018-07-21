@@ -22,7 +22,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Common product elements
--include $(LOCAL_PATH)/product/*.mk
+include $(LOCAL_PATH)/product/*.mk
 
 # Remove packages that do not work well
 PRODUCT_PACKAGES += \

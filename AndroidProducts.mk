@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIT)/lineage.mk
+PRODUCT_MAKEFILES := $(LOCAL_PATH)/lineage.mk

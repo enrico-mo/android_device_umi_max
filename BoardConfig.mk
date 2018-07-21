@@ -18,7 +18,7 @@
 LOCAL_PATH := device/umi/MAX
 
 # Device vendor board
--include vendor/umi/MAX/BoardConfigVendor.mk
+include vendor/umi/MAX/BoardConfigVendor.mk
 
 # Common board elements
 include $(LOCAL_PATH)/PlatformConfig.mk
@@ -29,7 +29,7 @@ include $(LOCAL_PATH)/board/*.mk
 #include $(LOCAL_PATH)/mkopt/twrp/twrp.mk
 
 # Prebuilt BOOTIMG & KERNEL
--include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
+include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
 # Source KERNEL (disabled if prebuilt kernel enabled)
 #-include $(LOCAL_PATH)/mkopt/kernel/sources/kernel.mk
 
