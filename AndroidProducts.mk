@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/lineage.mk
+PRODUCT_MAKEFILES := $(LOCAL_PATH)/device_MAX.mk

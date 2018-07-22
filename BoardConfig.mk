@@ -17,51 +17,36 @@
 # Device path
 LOCAL_PATH := device/umi/MAX
 
-# Device vendor board
 include vendor/umi/MAX/BoardConfigVendor.mk
-
-# Common board elements
 include $(LOCAL_PATH)/PlatformConfig.mk
 include $(LOCAL_PATH)/board/*.mk
 
-###########################################################################
 # TWRP. ENABLED ONLY IN RECOVERY COMPILATION
 #include $(LOCAL_PATH)/mkopt/twrp/twrp.mk
 
 # Prebuilt BOOTIMG & KERNEL
 include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
-# Source KERNEL (disabled if prebuilt kernel enabled)
 #-include $(LOCAL_PATH)/mkopt/kernel/sources/kernel.mk
 
-# Ramdisk
 PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
 
-# build.prop
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
 
-#
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
-
-# BOARD FLAGS
 BOARD_HAS_NO_REAL_SDCARD := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_RECOVERY_SWIPE := true
 BOARD_USES_MMCUTILS := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 
-# EGL
+PRODUCT_PACKAGES += \
+    KeySwitch \
+    RemovePackages
+
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-# Flags
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-# Fonts
 EXTENDED_FONT_FOOTPRINT := true
-
-# init
 TARGET_PROVIDES_INIT_RC := true
-
-# Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file

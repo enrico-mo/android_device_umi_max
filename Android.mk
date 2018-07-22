@@ -15,12 +15,9 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-
+#$(warning $(LOCAL_PATH))
 ifeq ($(TARGET_DEVICE),MAX)
-
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
 include $(call all-makefiles-under,$(LOCAL_PATH))
-
 endif
 
 #

@@ -1,4 +1,5 @@
-LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH := $(call my-dir)
+
 ifneq ($(filter MAX,$(TARGET_DEVICE)),)
 include $(CLEAR_VARS)
 

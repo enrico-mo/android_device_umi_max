@@ -1,5 +1,4 @@
-
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2016 fire855 <thefire855@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +13,25 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-$(warning $(LOCAL_PATH))
+
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := \
-    frameworks/av/include
-
 LOCAL_SRC_FILES := \
-    MtkCameraParameters.cpp
+    mtk_asc.cpp \
+    mtk_audio.cpp \
+    mtk_audioCompat.c \
+    mtk_cam.cpp \
+    mtk_fence.cpp \
+    mtk_gui.cpp \
+    mtk_omx.cpp \
+    mtk_ui.cpp 
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
-LOCAL_MODULE := mtkcamera_parameters
+# only for 64bit libraries
+LOCAL_SRC_FILES_64 := mtk_parcel.cpp
+
+LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui libicuuc
+LOCAL_MODULE := libmtk_symbols
 LOCAL_MODULE_TAGS := optional
-
-include $(BUILD_STATIC_LIBRARY)
+LOCAL_MODULE_PATH =
+LOCAL_MODULE_RELATIVE_PATH =
+include $(BUILD_SHARED_LIBRARY)
