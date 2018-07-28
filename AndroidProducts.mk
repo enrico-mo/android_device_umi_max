@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/device_MAX.mk
+PRODUCT_MAKEFILES := \
+    $(LOCAL_PATH)/device_MAX.mk

@@ -17,9 +17,9 @@
 # Device path
 LOCAL_PATH := device/umi/MAX
 
-include vendor/umi/MAX/BoardConfigVendor.mk
 include $(LOCAL_PATH)/PlatformConfig.mk
 include $(LOCAL_PATH)/board/*.mk
+include vendor/umi/MAX/BoardConfigVendor.mk
 
 # TWRP. ENABLED ONLY IN RECOVERY COMPILATION
 #include $(LOCAL_PATH)/mkopt/twrp/twrp.mk
@@ -28,23 +28,24 @@ include $(LOCAL_PATH)/board/*.mk
 include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
 #-include $(LOCAL_PATH)/mkopt/kernel/sources/kernel.mk
 
-PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
+#PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
 
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
 
-ENABLE_CPUSETS := true
-ENABLE_SCHEDBOOST := true
-BOARD_HAS_NO_REAL_SDCARD := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_RECOVERY_SWIPE := true
-BOARD_USES_MMCUTILS := true
-BOARD_SUPPRESS_EMMC_WIPE := true
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
+#BOARD_HAS_NO_REAL_SDCARD := true
+#BOARD_HAS_NO_MISC_PARTITION := true
+#BOARD_RECOVERY_SWIPE := true
+#BOARD_USES_MMCUTILS := true
+#BOARD_SUPPRESS_EMMC_WIPE := true
 
 PRODUCT_PACKAGES += \
     KeySwitch \
     RemovePackages
 
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
+USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 EXTENDED_FONT_FOOTPRINT := true

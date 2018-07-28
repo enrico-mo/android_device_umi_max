@@ -13,7 +13,7 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-
+$(warning build FINGERPRINT!!!)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := fingerprint.mt6755
