@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +15,7 @@
 # limitations under the License.
 #
 
+# Display
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true

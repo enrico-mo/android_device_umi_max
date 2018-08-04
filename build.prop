@@ -1,7 +1,5 @@
 # begin build properties
 
-# ro.product.cpu.abi and ro.product.cpu.abi2 are obsolete,
-# use ro.product.cpu.abilist instead.
 ro.product.cpu.abi=arm64-v8a
 ro.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
 ro.product.cpu.abilist32=armeabi-v7a,armeabi
@@ -10,27 +8,12 @@ ro.product.manufacturer=UMI
 ro.product.locale=en-US
 ro.wifi.channels=
 ro.board.platform=mt6755
-# ro.build.product is obsolete; use ro.product.device
 ro.build.product=MAX
-ro.product.usbfactory=c239v55_kw_u11
-ro.compagny.name=c239v55_kw_u11
 # Do not try to parse description, fingerprint, or thumbprint
 ro.build.bluetooth.name=UMI MAX
 ro.build.wifi.ssid=UMI MAX
 ro.agold.usbstorage.name=UMI_MAX
 ro.build.wifip2pDN=UMI MAX
-
-# end build properties
-#
-# from device/even/c239v55_kw_u11/system.prop
-#
-#
-# system.prop for generic sdk
-#
-
-rild.libpath=mtk-ril.so
-rild.libargs=-d /dev/ttyC0
-
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
@@ -66,6 +49,7 @@ ro.sys.usb.mtp.whql.enable=0
 # Power off opt in IPO
 sys.ipo.pwrdncap=2
 
+
 ro.sys.usb.storage.type=mtp,mass_storage
 
 # USB BICR function
@@ -99,6 +83,48 @@ ro.mtk_perf_response_time=1
 # MAL
 persist.mal.mode=0
 
+# RIL
+rild.libpath=mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+ril.specific.sm_cause=0
+ril.external.md=0
+ril.current.share_modem=2
+ril.flightmode.poweroffMD=1
+ril.telephony.mode=0
+ril.radiooff.poweroffMD=0
+ro.mtk_enable_md1=1
+ro.telephony.default_network=9
+persist.radio.default.sim=0
+persist.radio.multisim.config=dsds
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
+
+# Wifi
+wifi.interface=wlan0
+wifi.tethering.interface=ap0
+wifi.direct.interface=p2p0
+
+# Graphics
+ro.opengles.version=196608
+ro.sf.lcd_density=480
+
+# FRP
+ro.frp.pst=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/frp
+
+# Memory trim
+ro.sys.fw.use_trim_settings=true
+ro.sys.fw.empty_app_percent=50
+ro.sys.fw.trim_empty_percent=100
+ro.sys.fw.trim_cache_percent=100
+ro.sys.fw.trim_enable_memory=1073741824
+
+ro.config.max_starting_bg=3
+
+# Use 3 threads max for dex2oat
+ro.sys.fw.dex2oat_thread_count=3
+
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
@@ -112,10 +138,10 @@ ro.home_doublelong_press=no
 ro.FP_SWITCH=yes
 ro.config.nav_bar_show=yes
 ro.wifi_max_rssi=-65
-ro.config.notification_sound=Tinkerbell.ogg
-ro.config.mms_sound=TaDa.ogg
-ro.config.alarm_alert=Alarm_Classic.ogg
-ro.config.ringtone=BeatPlucker.ogg
+#ro.config.notification_sound=Tinkerbell.ogg
+#ro.config.mms_sound=TaDa.ogg
+#ro.config.alarm_alert=Alarm_Classic.ogg
+#ro.config.ringtone=BeatPlucker.ogg
 ro.hnd.analog.audio.max=unknown
 ro.hed.analog.audio.max=unknown
 ro.calll.nor.mic=unknown
@@ -175,7 +201,7 @@ ro.def.camera.bright.sub=middle
 ro.gprs.switch=no
 ro.keyboard.vibrate.value=0
 ro.build.shutdown.animation=no
-ro.build.time.format=12
+ro.build.time.format=24
 ro.build.date.format=dd-MM-yyyy
 ro.auto.time.update=yes
 ro.auto.timezone.update=yes
@@ -192,8 +218,8 @@ ro.wifi.notification=no
 ro.wifi.sleepmode=2
 ro.powerkey.function=0
 ro.install.location=0
-ro.build.staticwp=com.agold.launcher.wallpaper/wallpaper_home
-ro.build.lockwallpaper=com.agold.launcher.wallpaper/wallpaper_default
+#ro.build.staticwp=com.agold.launcher.wallpaper/wallpaper_home
+#ro.build.lockwallpaper=com.agold.launcher.wallpaper/wallpaper_default
 ro.build.lockwpfunc=yes
 ro.audioprofile_general_vibrate=no
 ro.build.keyboard.touchaudio=no
@@ -208,7 +234,7 @@ or.button.ledvalue=-1
 ro.browser.homepage=http://www.umidigi.com
 ro.nosignal.hideicons=yes
 ro.show.navigationbar=yes
-or.build.serialname=0123456789ABCDEFG
+#or.build.serialname=0123456789ABCDEFG
 ro.phone.min.num.match=7
 ro.build.autobrightness=no
 ro.roaming.reminder=-1
@@ -216,7 +242,7 @@ ro.wifimac.tonvram=1
 ro.acc.alps.calibration=acc,alps
 ro.transition.animation=1
 ro.build.fontsize=AGOLD_EMPTY
-ro.firstboot.date=2015,1,1
+#ro.firstboot.date=2015,1,1
 ro.sf.lcd_density=480
 ro.hall.call.flashring=no
 ro.hall.window.sleep=AGOLD_EMPTY
@@ -232,12 +258,12 @@ ro.ag.userswitch=no
 ro.default.gps.switch=network,gps
 ro.def.remove.screen.pining=1
 ro.cloud.settings.ui=0
-ro.def.kernel_name=rom@91umi.com
-ro.miracletek.project=SUPER
+#ro.def.kernel_name=rom@91umi.com
+ro.miracletek.project=MAX
 ro.miracletek.customer=UMI
 ro.def.location.mode=3
 ro.setupwizard.mode=OPTIONAL
-ro.com.google.gmsversion=6.0_r9
+#ro.com.google.gmsversion=6.0_r9
 dalvik.vm.heapgrowthlimit=256m
 dalvik.vm.heapsize=512m
 ro.mediatek.chip_ver=S01
@@ -349,7 +375,7 @@ ro.mtk_vilte_support=0
 ro.mtk_vilte_ut_support=0
 ro.mtk_voice_extension_support=1
 wfd.dummy.enable=1
-ro.mediatek.project.path=device/even/c239v55_kw_u11
+#ro.mediatek.project.path=device/even/c239v55_kw_u11
 persist.mtk.wcn.combo.chipid=-1
 persist.mtk.wcn.fwlog.status=no
 persist.mtk.wcn.dynamic.dump=0

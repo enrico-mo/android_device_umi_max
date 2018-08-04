@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,5 +15,6 @@
 # limitations under the License.
 #
 
+# SELinux
 BOARD_SEPOLICY_DIRS := \
-       $(LOCAL_PATH)/sepolicy
+	$(LOCAL_PATH)/sepolicy

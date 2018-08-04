@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +15,7 @@
 # limitations under the License.
 #
 
+# Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true

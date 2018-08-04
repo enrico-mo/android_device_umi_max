@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,4 +16,7 @@
 #
 
 LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
+
+#ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)

@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,5 +16,5 @@
 #
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/umi/MAX/ril
+BOARD_RIL_CLASS := ../../../device/umi/mt6755-common/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc

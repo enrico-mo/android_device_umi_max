@@ -14,7 +14,7 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-$(warning $(LOCAL_PATH))
+
 include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := \

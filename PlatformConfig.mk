@@ -1,11 +1,12 @@
 #
+# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,10 +15,8 @@
 # limitations under the License.
 #
 
+# Platform
 TARGET_BOARD_PLATFORM := mt6755
-TARGET_BOARD_SUFFIX := _64
-TARGET_BOARD_PLATFORM_GPU := mali-t860mp2
-TARGET_USES_64_BIT_BINDER := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -31,6 +30,10 @@ TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+
+TARGET_BOARD_SUFFIX := _64
+TARGET_BOARD_PLATFORM_GPU := mali-t860mp2
+TARGET_USES_64_BIT_BINDER := true
 
 # Architecture Extensions
 TARGET_CPU_SMP := true
