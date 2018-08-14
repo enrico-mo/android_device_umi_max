@@ -1,2 +1,3 @@
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIT)/device_MAX.mk
+	$(LOCAL_DIT)/device_MAX.mk \
+	$(LOCAL_DIT)/mt6755.mk

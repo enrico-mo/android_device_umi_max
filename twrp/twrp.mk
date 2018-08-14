@@ -18,26 +18,26 @@
 
 # TWRP Recovery
 RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
 
 #
 RECOVERY_SDCARD_ON_DATA := true
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
+TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 80
 TW_DEFAULT_EXTERNAL_STORAGE := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_INPUT_BLACKLIST := "hbtp_vm" # DA TESTARE
 TW_FLASH_FROM_STORAGE := true
 TW_INCLUDE_CRYPTO := true
-TW_MAX_BRIGHTNESS := 255
 TW_NEW_ION_HEAP := true
 TW_NO_SCREEN_BLANK := true
-TW_THEME := portrait_hdpi
 TWHAVE_SELINUX := true
 TW_INCLUDE_NTFS_3G := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+#TW_EXCLUDE_SUPERSU := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_DEVICE_VERSION := 0
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness/
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-#TW_EXCLUDE_SUPERSU := true
