@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BOARD_MKBOOTIMG_ARGS := --board 1465391499 --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
-
 # Prebuilt kernel
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
 #ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
@@ -30,7 +28,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KMODULES := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
-# Prebuilt bootimg - FROM 13.1 NOT NEEDED ON 14.1 ???
+# Prebuilt bootimg
+BOARD_CUSTOM_BOOTIMG := true
+TARGET_PREBUILT_BOOTIMG := $(LOCAL_PATH)/prebuilts/boot.img
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/prebuilts/boot.img:boot.img
-#BOARD_CUSTOM_BOOTIMG := true
+BOARD_MKBOOTIMG_ARGS := --board 1465391499 --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000

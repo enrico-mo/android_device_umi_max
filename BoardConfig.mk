@@ -25,13 +25,10 @@ include $(LOCAL_PATH)/board/*.mk
 
 # Common board elements
 include $(LOCAL_PATH)/PlatformConfig.mk
-include $(LOCAL_PATH)/board/*.mk
 
 # Prebuilt BOOTIMG & KERNEL
 include $(LOCAL_PATH)/prebuilts/prebuilt_kernel.mk
 
-# TWRP. ENABLED ONLY IN RECOVERY COMPILATION
-include $(LOCAL_PATH)/twrp/twrp.mk
 #######################################################################
 
 # EGL
@@ -50,3 +47,29 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
+
+# TWRP Recovery
+RECOVERY_VARIANT := twrp
+TW_THEME := portrait_hdpi
+
+#
+RECOVERY_SDCARD_ON_DATA := true
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 80
+TW_DEFAULT_EXTERNAL_STORAGE := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_INPUT_BLACKLIST := "hbtp_vm" # DA TESTARE
+TW_FLASH_FROM_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+TW_NEW_ION_HEAP := true
+TW_NO_SCREEN_BLANK := true
+TWHAVE_SELINUX := true
+TW_INCLUDE_NTFS_3G := true
+#TW_EXCLUDE_SUPERSU := true
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_DEVICE_VERSION := 0
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness/
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
