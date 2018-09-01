@@ -11,8 +11,5 @@ $(foreach target,$(1), \
 endef
 
 $(call add-rootdir-targets, \
-    fstab.mt6755 \
-    init.mt6755.rc \
     init.mt6755.modem.rc \
-    init.mt6755.usb.rc \
-    ueventd.mt6755.rc)
+    init.mt6755.usb.rc)
