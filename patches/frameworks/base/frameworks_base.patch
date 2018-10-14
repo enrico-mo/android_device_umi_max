@@ -1,0 +1,20 @@
+commit e47bd4beccefc713cee0d210b98353e94109b428
+Author: enrico-mo <enrico.caporali.mo@gmail.com>
+Date:   Sun Oct 14 04:29:56 2018 +0200
+
+    frameworks/base mtk patches
+    
+    Change-Id: I997ae30b3e8c07ca52580e803d0bbbd465e9c43f
+
+diff --git a/core/jni/fd_utils-inl.h b/core/jni/fd_utils-inl.h
+index a68a602..c6fc508 100644
+--- a/core/jni/fd_utils-inl.h
++++ b/core/jni/fd_utils-inl.h
+@@ -58,6 +58,7 @@ static const char* kPathWhitelist[] = {
+   "/dev/urandom",
+   "/dev/ion",
+   "/dev/dri/renderD129", // Fixes b/31172436
++  "/proc/ged", // MTK add
+   "/system/framework/org.cyanogenmod.platform-res.apk",
+ #ifdef PATH_WHITELIST_EXTRA_H
+ PATH_WHITELIST_EXTRA_H

@@ -1,4 +1,4 @@
-# FMRadio
+# Package
 PRODUCT_PACKAGES += \
-	libfmjni \
+    libfmjni \
 	FMRadio

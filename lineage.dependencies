@@ -1,8 +1,8 @@
 [
-	{
-		"remote": "github",
-		"repository": "joe2k01/KeySwitch",
-		"target_path": "packages/apps/KeySwitch",
-		"branch": "AOSP-build"
-	}
-]
+  {
+    "remote": "github",
+    "repository": "LineageOS/android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch": "cm-14.1"
+  }
+] 

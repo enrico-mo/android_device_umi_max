@@ -2,14 +2,13 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="bionic frameworks/av frameworks/base system/core"
+dirs="frameworks/av frameworks/base frameworks/native system/core system/netd"
 
 for dir in $dirs ; do
 	cd $rootdirectory
 	cd $dir
-	echo "Applying $dir patches..."
-	#git am $rootdirectory/device/umi/mt6755-common/patches/$dir/*.patch
-	git apply $rootdirectory/device/umi/mt6755-common/patches/$dir/*.patch
+	echo "Applying $rootdirectory/device/umi/MAX/patches/$dir patches..."
+	git apply $rootdirectory/device/umi/MAX/patches/$dir/*.patch
 	echo " "
 done
 

@@ -1,0 +1,5 @@
+This is patch directory
+
+cd WORKING_DIR
+sh device/umi/MAX/patches/install.sh
+sh device/umi/MAX/patches/uninstall.sh
