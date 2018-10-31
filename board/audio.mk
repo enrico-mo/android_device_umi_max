@@ -1,5 +1,4 @@
 #
-# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,5 +14,12 @@
 # limitations under the License.
 #
 
-# MTK audio
 BOARD_USES_MTK_AUDIO := true
+# DA TESTARE
+HAVE_HTC_AUDIO_DRIVER := false
+BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_TINY_ALSA_AUDIO := true
+
+# Disable memcpy opt (for audio libraries)
+TARGET_CPU_MEMCPY_OPT_DISABLE := true

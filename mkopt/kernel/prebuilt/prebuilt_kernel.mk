@@ -16,15 +16,15 @@
 
 # Prebuilt bootimg
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/boot.img:boot.img
+    $(LOCAL_PATH)/mkopt/kernel/prebuilt/boot.img:boot.img
 BOARD_CUSTOM_BOOTIMG := true
-BOARD_MKBOOTIMG_ARGS := --board 1465391499 --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
 
 # Prebuilt kernel
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
-ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
+ALL_PREBUILT += \
+    $(INSTALLED_KERNEL_TARGET)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/kernel:kernel
+    $(LOCAL_PATH)/mkopt/kernel/prebuilt/kernel:kernel
 
 # KERNEL params
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 enforcing=0 androidboot.selinux=permissive

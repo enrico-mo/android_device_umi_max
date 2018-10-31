@@ -1,12 +1,11 @@
 #
-# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,28 +14,18 @@
 # limitations under the License.
 #
 
-# Device product elements
 include $(LOCAL_PATH)/product/*.mk
 
-# Dalvik heap & hwui memory configurations
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
-# Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Common overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Remove packages that do not work well
-PRODUCT_PACKAGES += \
-    RemovePackages
-
-# Product common configurations
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Vendor product configurations
-$(call inherit-product-if-exists, vendor/umi/MAX/MAX-vendor.mk)
+$(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)

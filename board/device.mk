@@ -1,5 +1,4 @@
 #
-# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,6 +16,8 @@
 
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := MAX,MAX,UMI,UMI
+
+# Bionic
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true

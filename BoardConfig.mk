@@ -1,12 +1,11 @@
 #
-# Copyright (C) 2017 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
-#
+# 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,40 +17,37 @@
 # Device path
 LOCAL_PATH := device/umi/MAX
 
-# TWRP. ENABLED ONLY IN RECOVERY COMPILATION
-#include $(LOCAL_PATH)/twrp/twrp.mk
-
-# Prebuilt BOOTIMG & KERNEL
-include $(LOCAL_PATH)/prebuilts/prebuilt_kernel.mk
-
-# Device vendor board
--include vendor/umi/MAX/BoardConfigVendor.mk
-
-# Common board elements
 include $(LOCAL_PATH)/PlatformConfig.mk
 include $(LOCAL_PATH)/board/*.mk
+include vendor/umi/MAX/BoardConfigVendor.mk
 
-#######################################################################
+# TWRP. ENABLED ONLY IN RECOVERY COMPILATION
+#include $(LOCAL_PATH)/mkopt/twrp/twrp.mk
 
-# Disable memcpy opt (for audio libraries)
-TARGET_CPU_MEMCPY_OPT_DISABLE := true
+# Prebuilt BOOTIMG & KERNEL
+include $(LOCAL_PATH)/mkopt/kernel/prebuilt/prebuilt_kernel.mk
+#-include $(LOCAL_PATH)/mkopt/kernel/sources/kernel.mk
 
-# EGL
+#PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
+
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
+
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
+#BOARD_HAS_NO_REAL_SDCARD := true
+#BOARD_HAS_NO_MISC_PARTITION := true
+#BOARD_RECOVERY_SWIPE := true
+#BOARD_USES_MMCUTILS := true
+#BOARD_SUPPRESS_EMMC_WIPE := true
+
+PRODUCT_PACKAGES += \
+    KeySwitch \
+    RemovePackages
+
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-# Flags
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-
-# Fonts
 EXTENDED_FONT_FOOTPRINT := true
-
-# init
 TARGET_PROVIDES_INIT_RC := true
-
-# system.prop
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
-
-# Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
