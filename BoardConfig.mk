@@ -74,8 +74,8 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 -
 TARGET_KMODULES := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
-#ENABLE_CPUSETS := true
-#ENABLE_SCHEDBOOST := true
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 #BOARD_HAS_NO_REAL_SDCARD := true
 #BOARD_HAS_NO_MISC_PARTITION := true
 #BOARD_RECOVERY_SWIPE := true
@@ -88,8 +88,8 @@ BOARD_USES_MTK_AUDIO := true
 #HAVE_HTC_AUDIO_DRIVER := false
 #BOARD_USES_GENERIC_AUDIO := false
 #BOARD_USES_ALSA_AUDIO := true
-#BOARD_USES_TINY_ALSA_AUDIO := true
-TARGET_CPU_MEMCPY_OPT_DISABLE := true # Disable memcpy opt (for audio libraries)
+BOARD_USES_TINY_ALSA_AUDIO := true
+#TARGET_CPU_MEMCPY_OPT_DISABLE := true # Disable memcpy opt (for audio libraries)
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
