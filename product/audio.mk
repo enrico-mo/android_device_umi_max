@@ -9,5 +9,5 @@ PRODUCT_PACKAGES += \
     libmtk_symbols \
     libtinycompress \
     libtinyxml \
-    tinymix \
-    libtinyalsa
+    tinymix
+#    libtinyalsa
