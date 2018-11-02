@@ -27,6 +27,11 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop.LITE
 # Variants
 TARGET_OTA_ASSERT_DEVICE := MAX,max,UMI,umi,c239v55_kw
 
+# Mediatek support
+BOARD_HAS_MTK_HARDWARE := true
+BOARD_USES_MTK_HARDWARE := true
+
+##########################################################################################################
 #Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -53,11 +58,12 @@ ARCH_ARM_HAVE_VFP := true
 #TARGET_KERNEL_SOURCE := kernel/umi/MAX
 #TARGET_KERNEL_CONFIG := lineage_max_defconfig
 # DA VERIFICARE (IMPORTATI DA cm-14.0)
-#TARGET_KERNEL_ARCH := arm64
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_USES_64_BIT_BINDER := true
 
 # Prebuilt bootimg
-BOARD_CUSTOM_BOOTIMG := true
+#BOARD_CUSTOM_BOOTIMG := true
 
 # Prebuilt kernel
 ALL_PREBUILT += \
@@ -81,8 +87,17 @@ ENABLE_SCHEDBOOST := true
 #BOARD_RECOVERY_SWIPE := true
 #BOARD_USES_MMCUTILS := true
 #BOARD_SUPPRESS_EMMC_WIPE := true
+#########################################################################################################
+ifneq ($(TARGET_BUILD_VARIANT), user)
+# ADB Debugging
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.secure=0
+endif
 
 # Audio
+#USE_CUSTOM_AUDIO_POLICY := 1 #No rule to make target '/out/target/product/MAX/obj_arm/SHARED_LIBRARIES/libaudiopolicymanager_intermediates/export_includes'
 BOARD_USES_MTK_AUDIO := true
 # DA TESTARE
 #HAVE_HTC_AUDIO_DRIVER := false
@@ -139,6 +154,11 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # GPS
 BOARD_GPS_LIBRARIES := true
 BOARD_MEDIATEK_USES_GPS := true
+ifeq ($(MTK_GPS_SUPPORT), yes)
+    BOARD_GPS_LIBRARIES := true
+else
+    BOARD_GPS_LIBRARIES := false
+endif
 
 # Hardware
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
