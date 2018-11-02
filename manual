@@ -1,0 +1,22 @@
+How to make a patches after changes in LOS source code:
+
+Cd Working_dir (For example: Cd cm-13.0/frameworks/base)
+git status
+git add .
+git commit -m "name of patch"
+git show HEAD > 0001_.patch
+
+How to launch the CM13 build:
+Download vendor and device from my git.
+Create dirs umi/MAX and place them in working_dir/device and in working_dir/vendor
+After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
+Open terminal and write:
+cd Working_dir
+After apply patches:
+sh device/umi/MAX/patches/install.sh
+Write:
+source build/envsetup.sh
+lunch -> select correct device/release (lineage_MAX-userdebug or lineage_MAX-eng)
+brunch lineage_MAX-eng
+
+Wait of finish, for me ~1.5hr

@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2016 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,16 +17,18 @@
 
 include $(LOCAL_PATH)/product/*.mk
 
+# Call heap & hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
+# Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Set LineageOS build tipe
-CM_BUILDTYPE := NIGHTLY
+#CM_BUILDTYPE := NIGHTLY
 
-# Overlays
+# Device specific overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Inherit common configurations from los sources
@@ -33,4 +36,5 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Vendor product configurations
 $(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)

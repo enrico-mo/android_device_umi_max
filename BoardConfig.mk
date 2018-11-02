@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2016 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,13 +18,14 @@
 # Device path
 LOCAL_PATH := device/umi/MAX
 
+# Include Device vendor board
 include vendor/umi/MAX/BoardConfigVendor.mk
 
 #PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop.LITE
 
 # Variants
-TARGET_OTA_ASSERT_DEVICE := MAX,MAX,UMI,UMI
+TARGET_OTA_ASSERT_DEVICE := MAX,max,UMI,umi,c239v55_kw
 
 #Architecture
 TARGET_ARCH := arm64
@@ -55,15 +57,13 @@ ARCH_ARM_HAVE_VFP := true
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Prebuilt bootimg
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/prebuilts/boot.img:boot.img
 BOARD_CUSTOM_BOOTIMG := true
 
 # Prebuilt kernel
 ALL_PREBUILT += \
     $(INSTALLED_KERNEL_TARGET)
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/kernel:kernel
+    $(LOCAL_PATH)/prebuilt_kernel/kernel:kernel
 
 # KERNEL params
 BOARD_KERNEL_BASE := 0x40078000
@@ -88,7 +88,7 @@ BOARD_USES_MTK_AUDIO := true
 #HAVE_HTC_AUDIO_DRIVER := false
 #BOARD_USES_GENERIC_AUDIO := false
 #BOARD_USES_ALSA_AUDIO := true
-BOARD_USES_TINY_ALSA_AUDIO := true
+#BOARD_USES_TINY_ALSA_AUDIO := true
 #TARGET_CPU_MEMCPY_OPT_DISABLE := true # Disable memcpy opt (for audio libraries)
 
 # Bluetooth

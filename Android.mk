@@ -1,4 +1,5 @@
 #
+# Copyright (C) 2016 The LineageOS Project
 # Copyright (C) 2018 ecSoftware
 # 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,7 @@
 #
 
 LOCAL_PATH := $(call my-dir)
-#$(warning $(LOCAL_PATH))
+
 ifeq ($(TARGET_DEVICE),MAX)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
