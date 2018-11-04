@@ -57,12 +57,12 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
+    audio_policy.default \
+    libaudio-resampler \
     libaudiopolicymanagerdefault \
-    libtinyalsa \
     libtinycompress \
     libtinymix \
     libtinyxml \
-    libfs_mgr
 
 ifeq ($(NXP_SMARTPA_SUPPORT), yes)
 PRODUCT_COPY_FILES += \
@@ -162,6 +162,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:system/etc/permissions/android.hardware.camera.raw.xml
 
+# Charger
+PRODUCT_PACKAGES += \
+	charger
+
 # Dalvik
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -248,10 +252,6 @@ PRODUCT_COPY_FILES += \
 # MultiWindow
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.debug.multi_window=true
-
-# Charger
-PRODUCT_PACKAGES += \
-	charger
 
 # Power
 PRODUCT_PACKAGES += \
