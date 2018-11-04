@@ -99,15 +99,26 @@
     </integer-array>
 
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
-    <bool name="config_bluetooth_le_peripheral_mode_supported">false</bool>
+    <!-- bool name="config_bluetooth_le_peripheral_mode_supported">false</bool> -->
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
+    <!-- bool translatable="false" name="config_wifi_dual_band_support">false</bool> -->
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
-    <bool translatable="false" name="config_wifi_background_scan_support">false</bool>
+    <!-- bool translatable="false" name="config_wifi_background_scan_support">false</bool> -->
 
-    <!-- Whether WiFi display is supported by this device.  -->
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Flinger audio_policy.conf file must specify a rule for the "r_submix"
+           remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
     <bool name="config_enableWifiDisplay">true</bool>
 
     <!-- Set to true if the wifi display supports compositing content stored
@@ -208,8 +219,45 @@
     <!-- Does the notification LED support multiple colors? Used to decide if the user can change the colors -->
     <bool name="config_multiColorNotificationLed">true</bool>
 
+    <!-- Operating volatage for bluetooth controller. 0 by default-->
     <integer name="config_bluetooth_operating_voltage_mv">0</integer>
 
     <!-- Mediatek radios are why this option exists... :/ -->
     <bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
+
+    <!-- 20181103 TEST -->
+    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
+    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
+    <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
+    <integer-array translatable="false" name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+        <item>9</item>
+        <item>49</item>
+    </integer-array>
+
+    <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
+    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
+
+    <!-- Boolean indicating whether the wifi chipset supports background scanning mechanism.
+         This mechanism allows the host to remain in suspend state and the dongle to actively
+         scan and wake the host when a configured SSID is detected by the dongle. This chipset
+         capability can provide power savings when wifi needs to be always kept on. -->
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
+
+    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
+    <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
+
+    <!-- Boolean indicating if restoring network selection should be skipped -->
+    <!-- The restoring is handled by modem if it is true-->
+    <bool translatable="false" name="skip_restoring_network_selection">true</bool>
+
+    <!-- IpReachability monitor enable/Disable -->
+    <bool translatable="false" name="config_wifi_ipreachability_monitor">false</bool>
+
+    <!-- If true, then we do not ask user for permission for apps to connect to USB devices.
+         Do not set this to true for production devices. Doing so will cause you to fail CTS. -->
+    <bool name="config_disableUsbPermissionDialogs">false</bool>
 </resources>

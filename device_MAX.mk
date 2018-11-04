@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-include $(LOCAL_PATH)/product/*.mk
+include device/umi/MAX/mt6755.mk
 
 # Call heap & hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
@@ -27,9 +27,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Set LineageOS build tipe
 #CM_BUILDTYPE := NIGHTLY
-
-# Device specific overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Inherit common configurations from los sources
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)

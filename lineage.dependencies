@@ -1,8 +1,12 @@
 [
-	{
+ 	{
 		"remote": "github",
 		"repository": "joe2k01/KeySwitch",
 		"target_path": "packages/apps/KeySwitch",
 		"branch": "AOSP-build"
-	}
+	},
+	{
+      		"repository": "android_external_stlport",
+      		"target_path": "external/stlport"
+   	}
 ]
