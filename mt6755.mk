@@ -246,8 +246,23 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg
 
 # Mediatek platform
-#PRODUCT_PACKAGES += \
-#   libmtk_symbols
+PRODUCT_PACKAGES += \
+   libmtk_symbols
+
+# mtklog config
+ifeq ($(strip $(MTK_BASIC_PACKAGE)), yes)
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-basic-eng.prop:system/etc/mtklog-config.prop
+else
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-basic-user.prop:system/etc/mtklog-config.prop
+endif
+else
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-bsp-eng.prop:system/etc/mtklog-config.prop
+else
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-bsp-user.prop:system/etc/mtklog-config.prop
+endif
+endif
 
 # MultiWindow
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
