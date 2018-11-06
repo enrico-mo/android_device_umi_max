@@ -139,7 +139,6 @@ BOARD_EGL_WORKAROUND_BUG_10194508 := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 EXTENDED_FONT_FOOTPRINT := true
 TARGET_PROVIDES_INIT_RC := true
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -214,41 +213,25 @@ WIFI_DRIVER_STATE_OFF := 0
 
 # TWRP - OLD FLAGS
 #RECOVERY_VARIANT := twrp
-#PRODUCT_COPY_FILES += $(LOCAL_PATH)/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
-#TW_DEFAULT_BRIGHTNESS := 80
-#TW_DEFAULT_EXTERNAL_STORAGE := true
-#TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-#TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-#TW_INPUT_BLACKLIST := "hbtp_vm"
-#TW_FLASH_FROM_STORAGE := true
-#TW_INCLUDE_CRYPTO := true
-#TW_MAX_BRIGHTNESS := 255
-#TW_NEW_ION_HEAP := true
-#TW_NO_SCREEN_BLANK := true
-#TW_THEME := portrait_hdpi
-#TWHAVE_SELINUX := true
-TW_INCLUDE_NTFS_3G := true
-#TW_EXCLUDE_SUPERSU := true
-
-# TWRP - 'NEW' FLAGS. TO BE TESTED
-#RECOVERY_VARIANT := twrp
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+TARGET_DISABLE_TRIPLE_BUFFERING := false
 BOARD_HAS_NO_SELECT_BUTTON := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_MAX_BRIGHTNESS := 255
-BOARD_SUPPRESS_SECURE_ERASE := true
 TW_INCLUDE_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/userdata" # isn't used anymore ???
@@ -256,6 +239,13 @@ TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data =ordered"
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 80
 TW_NO_USB_STORAGE := true
-BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
-TARGET_DISABLE_TRIPLE_BUFFERING := false
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_FLASH_FROM_STORAGE := true
+TW_NEW_ION_HEAP := true
+TW_NO_SCREEN_BLANK := true
+TW_THEME := portrait_hdpi
+TWHAVE_SELINUX := true
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
