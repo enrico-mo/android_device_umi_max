@@ -20,6 +20,8 @@ LOCAL_PATH := device/umi/MAX
 
 # Include Device vendor board
 include vendor/umi/MAX/BoardConfigVendor.mk
+# Use the connectivity Boardconfig
+include device/umi/MAX/connectivity/BoardConfig.mk
 
 #PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop.LITE
@@ -66,7 +68,7 @@ ARCH_ARM_HAVE_VFP := true
 #BOARD_CUSTOM_BOOTIMG := true
 
 # Prebuilt kernel
-LOCAL_KERNEL := device/umi/MAX/prebuilts/kernel/Image.gz-dtb
+LOCAL_KERNEL := device/umi/MAX/prebuilt/kernel/Image.gz-dtb
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
@@ -104,12 +106,6 @@ BOARD_USES_MTK_AUDIO := true
 #BOARD_USES_ALSA_AUDIO := true
 #BOARD_USES_TINY_ALSA_AUDIO := true
 #TARGET_CPU_MEMCPY_OPT_DISABLE := true # Disable memcpy opt (for audio libraries)
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_MTK := true
-BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -150,11 +146,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 # GPS
 BOARD_GPS_LIBRARIES := true
 BOARD_MEDIATEK_USES_GPS := true
-ifeq ($(MTK_GPS_SUPPORT), yes)
-    BOARD_GPS_LIBRARIES := true
-else
-    BOARD_GPS_LIBRARIES := false
-endif
 
 # Hardware
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
@@ -196,20 +187,6 @@ TARGET_SCREEN_HEIGHT := 1920
 BOARD_SEPOLICY_DIRS := \
        $(LOCAL_PATH)/sepolicy
 
-# WiFi
-BOARD_WLAN_DEVICE := MediaTek
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
-WIFI_DRIVER_FW_PATH_PARAM := /dev/wmtWifi
-WIFI_DRIVER_FW_PATH_AP := AP
-WIFI_DRIVER_FW_PATH_STA := STA
-WIFI_DRIVER_FW_PATH_P2P := P2P
-WIFI_DRIVER_STATE_CTRL_PARAM := /dev/wmtWifi
-WIFI_DRIVER_STATE_ON := 1
-WIFI_DRIVER_STATE_OFF := 0
 
 # TWRP - OLD FLAGS
 #RECOVERY_VARIANT := twrp

@@ -52,6 +52,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.recovery.mt6755.rc
 
+# set locales & aapt config.
+PRODUCT_LOCALES := en_US zh_CN zh_TW es_ES pt_BR ru_RU fr_FR de_DE tr_TR vi_VN ms_MY in_ID th_TH it_IT ar_EG hi_IN bn_IN ur_PK fa_IR pt_PT nl_NL el_GR hu_HU tl_PH ro_RO cs_CZ ko_KR km_KH iw_IL my_MM pl_PL es_US bg_BG hr_HR lv_LV lt_LT sk_SK uk_UA de_AT da_DK fi_FI nb_NO sv_SE en_GB hy_AM zh_HK et_EE ja_JP kk_KZ sr_RS sl_SI ca_ES
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -64,13 +67,9 @@ PRODUCT_PACKAGES += \
     libtinymix \
     libtinyxml \
 
-ifeq ($(NXP_SMARTPA_SUPPORT), yes)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf_NXP:system/etc/audio_policy.conf
-else
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
-endif
+#    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_device.xml:system/etc/audio_device.xml \
@@ -250,18 +249,10 @@ PRODUCT_PACKAGES += \
    libmtk_symbols
 
 # mtklog config
-ifeq ($(strip $(MTK_BASIC_PACKAGE)), yes)
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-basic-eng.prop:system/etc/mtklog-config.prop
-else
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-basic-user.prop:system/etc/mtklog-config.prop
-endif
-else
 ifeq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-bsp-eng.prop:system/etc/mtklog-config.prop
 else
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtklog/mtklog-config-bsp-user.prop:system/etc/mtklog-config.prop
-endif
 endif
 
 # MultiWindow
