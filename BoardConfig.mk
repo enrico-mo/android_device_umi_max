@@ -32,6 +32,15 @@ TARGET_OTA_ASSERT_DEVICE := MAX,max,UMI,umi,c239v55_kw
 # Mediatek support
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
+#disable kernel config sync check
+DISABLE_MTK_CONFIG_CHECK = yes
+
+MTK_INTERNAL_CDEFS := $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_NAME),$(if $(filter-out no NO none NONE false FALSE,$($(t))),-D$(t)))
+MTK_INTERNAL_CDEFS += $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_VALUE),$(if $(filter-out no NO none NONE false FALSE,$($(t))),$(foreach v,$(shell echo $($(t)) | tr '[a-z]' '[A-Z]'),-D$(v))))
+MTK_INTERNAL_CDEFS += $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_NAME_VALUE),$(if $(filter-out no NO none NONE false FALSE,$($(t))),-D$(t)=\"$(strip $($(t)))\"))
+
+COMMON_GLOBAL_CFLAGS += $(MTK_INTERNAL_CDEFS)
+COMMON_GLOBAL_CPPFLAGS += $(MTK_INTERNAL_CDEFS)
 
 ##########################################################################################################
 #Architecture
@@ -98,14 +107,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 endif
 
 # Audio
-#USE_CUSTOM_AUDIO_POLICY := 1
+#BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_USES_MTK_AUDIO := true
-# DA TESTARE
-#HAVE_HTC_AUDIO_DRIVER := false
-#BOARD_USES_GENERIC_AUDIO := false
-#BOARD_USES_ALSA_AUDIO := true
-#BOARD_USES_TINY_ALSA_AUDIO := true
-#TARGET_CPU_MEMCPY_OPT_DISABLE := true # Disable memcpy opt (for audio libraries)
+#BOARD_AGPS_SUPL_LIBRARIES := true
 
 # Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -128,6 +132,12 @@ MAX_VIRTUAL_DISPLAY_DIMENSION := 1
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 MTK_HWC_SUPPORT := yes
 MTK_HWC_VERSION := 1.4.1
+# 20181119 - ONE OR MORE OF THOSE FLAGS CAUSE HOMESCREEN LOOP
+#TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+#NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+#TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+#VSYNC_EVENT_PHASE_OFFSET_NS := 0
+#SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0
 
 # EGL
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg

@@ -17,3 +17,6 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_PATH)/device_MAX.mk
+
+# Set LineageOS build tipe
+#CM_BUILDTYPE := NIGHTLY

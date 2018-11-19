@@ -25,14 +25,10 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwu
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Set LineageOS build tipe
-#CM_BUILDTYPE := NIGHTLY
-
-# Inherit common configurations from los sources
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
-# Vendor product configurations
-$(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)
+######################################################
+PRODUCT_COPY_FILES += device/umi/MAX/rootdir/etc/fstab.mt6755:root/fstab.mt6755
+DEVICE_PACKAGE_OVERLAYS += device/umi/MAX/overlay
+########################################################
 
 # MediaTek framework base modules
 PRODUCT_PACKAGES += \
@@ -89,3 +85,9 @@ PRODUCT_PACKAGES += 6620_wmt_concurrency
 PRODUCT_PACKAGES += 6620_wmt_lpbk
 PRODUCT_PACKAGES += wmt_loader
 PRODUCT_PACKAGES += stp_dump3
+
+
+# Inherit common configurations from los sources
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+# Vendor product configurations
+$(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)
