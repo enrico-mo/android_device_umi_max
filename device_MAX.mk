@@ -21,14 +21,9 @@ include device/umi/MAX/mt6755.mk
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
-# Screen density
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-######################################################
 PRODUCT_COPY_FILES += device/umi/MAX/rootdir/etc/fstab.mt6755:root/fstab.mt6755
 DEVICE_PACKAGE_OVERLAYS += device/umi/MAX/overlay
-########################################################
 
 # MediaTek framework base modules
 PRODUCT_PACKAGES += \
@@ -43,14 +38,51 @@ PRODUCT_BOOT_JARS += \
     mediatek-framework \
     mediatek-telephony-common
 
-# Telephony
-PRODUCT_COPY_FILES += device/umi/MAX/configs/apns-conf.xml:system/etc/apns-conf.xml
-PRODUCT_COPY_FILES += device/umi/MAX/configs/spn-conf.xml:system/etc/spn-conf.xml
+#AGPS
+PRODUCT_PACKAGES += \
+    LocationEM \
+    LocationEM2 \
+    mtk_agpsd \
+    libssladp \
+    cacerts_supl \
+    AutoDialer
+PRODUCT_COPY_FILES += device/umi/MAX/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 # Audio
-PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_em.xml:system/etc/audio_em.xml
+PRODUCT_COPY_FILES += \
+    device/umi/MAX/configs/audio_em.xml:system/etc/audio_em.xml \
+    device/umi/MAX/configs/audio_policy.conf:system/etc/audio_policy.conf
 
-# Telephony begin
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    audio_policy.default \
+    libaudio-resampler \
+    libaudiopolicymanagerdefault \
+    libtinycompress \
+    libtinyxml \
+
+#Connectivity combo_tool
+PRODUCT_PACKAGES += 6620_launcher
+PRODUCT_PACKAGES += 6620_wmt_concurrency
+PRODUCT_PACKAGES += 6620_wmt_lpbk
+PRODUCT_PACKAGES += wmt_loader
+PRODUCT_PACKAGES += stp_dump3
+
+#SPM
+PRODUCT_PACKAGES += spm_loader
+PRODUCT_PACKAGES += pcm_deepidle.bin
+PRODUCT_PACKAGES += pcm_deepidle_by_mp1.bin
+PRODUCT_PACKAGES += pcm_suspend.bin
+PRODUCT_PACKAGES += pcm_suspend_by_mp1.bin
+PRODUCT_PACKAGES += pcm_sodi.bin
+PRODUCT_PACKAGES += pcm_sodi_by_mp1.bin
+PRODUCT_PACKAGES += pcm_vcorefs_hpm.bin
+PRODUCT_PACKAGES += pcm_vcorefs_lpm.bin
+PRODUCT_PACKAGES += pcm_vcorefs_ultra.bin
+
+# Telephony
 PRODUCT_PACKAGES += muxreport
 PRODUCT_PACKAGES += mtkrild
 PRODUCT_PACKAGES += mtk-ril
@@ -63,29 +95,8 @@ PRODUCT_PACKAGES += gsm0710muxdmd2
 PRODUCT_PACKAGES += md_minilog_util
 PRODUCT_PACKAGES += BSPTelephonyDevTool
 PRODUCT_PACKAGES += ppl_agent
-
-#
-#SPM loader
-PRODUCT_PACKAGES += spm_loader
-
-#SPM binary
-PRODUCT_PACKAGES += pcm_deepidle.bin
-PRODUCT_PACKAGES += pcm_deepidle_by_mp1.bin
-PRODUCT_PACKAGES += pcm_suspend.bin
-PRODUCT_PACKAGES += pcm_suspend_by_mp1.bin
-PRODUCT_PACKAGES += pcm_sodi.bin
-PRODUCT_PACKAGES += pcm_sodi_by_mp1.bin
-PRODUCT_PACKAGES += pcm_vcorefs_hpm.bin
-PRODUCT_PACKAGES += pcm_vcorefs_lpm.bin
-PRODUCT_PACKAGES += pcm_vcorefs_ultra.bin
-
-#Connectivity combo_tool
-PRODUCT_PACKAGES += 6620_launcher
-PRODUCT_PACKAGES += 6620_wmt_concurrency
-PRODUCT_PACKAGES += 6620_wmt_lpbk
-PRODUCT_PACKAGES += wmt_loader
-PRODUCT_PACKAGES += stp_dump3
-
+PRODUCT_COPY_FILES += device/umi/MAX/configs/apns-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += device/umi/MAX/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Inherit common configurations from los sources
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
