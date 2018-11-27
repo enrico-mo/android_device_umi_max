@@ -65,7 +65,7 @@ LOCAL_PATH := $(call my-dir)
 
 cfg_folder := vendor/amt/libs/mt6797_64/combo_tool/cfg_folder
 patch_folder := vendor/amt/libs/mt6797_64/combo_tool/patch_folder
-init_folder := device/mediatek/common/connectivity/init
+init_folder := device/umi/MAX/connectivity/init
 
 BUILD_PATCH := true
 
@@ -281,8 +281,8 @@ PRODUCT_PROPERTY_OVERRIDES += service.wcn.coredump.mode=2
 
 endif
 
-$(call inherit-product-if-exists, device/mediatek/common/connectivity/product_package/gps_product_package.mk)
-$(call inherit-product-if-exists, device/mediatek/common/connectivity/product_package/fm_product_package.mk)
-$(call inherit-product-if-exists, device/mediatek/common/connectivity/product_package/wlan_product_package.mk)
-$(call inherit-product-if-exists, device/mediatek/common/connectivity/product_package/bluetooth_product_package.mk)
-$(call inherit-product-if-exists, device/mediatek/common/connectivity/product_package/ant_product_package.mk)
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/gps_product_package.mk)
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/fm_product_package.mk)
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/wlan_product_package.mk)
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/bluetooth_product_package.mk)
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/ant_product_package.mk)

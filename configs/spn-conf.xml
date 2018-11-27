@@ -796,8 +796,6 @@
 <spnOverride numeric="50506" spn="3TELSTRA"/>
 <spnOverride numeric="50510" spn="Norfolk Telecom"/>
 <spnOverride numeric="50516" spn="VicTrack"/>
-<spnOverride numeric="50571" spn="Telstra"/>
-<spnOverride numeric="50572" spn="Telstra"/>
 <spnOverride numeric="51000" spn="ACeS"/>
 <spnOverride numeric="51001" spn="IND INDOSAT"/>
 <spnOverride numeric="51008" spn="AXIS"/>

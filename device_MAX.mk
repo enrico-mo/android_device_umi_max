@@ -43,14 +43,6 @@ PRODUCT_PACKAGES += AutoDialer
 PRODUCT_COPY_FILES += device/umi/MAX/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 # Audio (TO BE TESTED: audio_policy_NXP.conf)
-PRODUCT_PACKAGES += audio.a2dp.default
-PRODUCT_PACKAGES += audio.usb.default
-PRODUCT_PACKAGES += audio.r_submix.default
-PRODUCT_PACKAGES += audio_policy.default
-PRODUCT_PACKAGES += libaudio-resampler
-PRODUCT_PACKAGES += libaudiopolicymanagerdefault
-PRODUCT_PACKAGES += libtinycompress
-PRODUCT_PACKAGES += libtinyxml
 PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_em.xml:system/etc/audio_em.xml
 PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_policy.conf:system/etc/audio_policy.conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_device.xml:system/etc/audio_device.xml
@@ -118,6 +110,42 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/VolumeGainMap_AudioParam
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/VolumeGainMap_ParamUnitDesc.xml:system/etc/audio_param/VolumeGainMap_ParamUnitDesc.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/Volume_AudioParam.xml:system/etc/audio_param/Volume_AudioParam.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/Volume_ParamUnitDesc.xml:system/etc/audio_param/Volume_ParamUnitDesc.xml
+
+PRODUCT_PACKAGES += libaudiopolicymanagerdefault
+PRODUCT_PACKAGES += libtinycompress
+PRODUCT_PACKAGES += libtinyxml
+PRODUCT_PACKAGES += audio.primary.mt6753 #
+PRODUCT_PACKAGES += audio.primary.mt6755
+PRODUCT_PACKAGES += libaudiocustparam
+PRODUCT_PACKAGES += libaudiodcrflt
+PRODUCT_PACKAGES += libaudiosetting
+PRODUCT_PACKAGES += libaudio.usb.default
+PRODUCT_PACKAGES += audio.usb.default
+PRODUCT_PACKAGES += libaudio.r_submix.default
+PRODUCT_PACKAGES += audio.r_submix.default
+PRODUCT_PACKAGES += libaudioflinger
+PRODUCT_PACKAGES += libmeta_audio
+PRODUCT_PACKAGES += audiocmdservice_atci
+PRODUCT_PACKAGES += libMtkOmxAudioEncBase
+PRODUCT_PACKAGES += libMtkOmxAudioDecBase
+PRODUCT_PACKAGES += audio.primary.default
+PRODUCT_PACKAGES += audio_policy.stub
+PRODUCT_PACKAGES += audio_policy.default
+PRODUCT_PACKAGES += libaudio.primary.default
+PRODUCT_PACKAGES += libaudio.a2dp.default
+PRODUCT_PACKAGES += audio.a2dp.default
+PRODUCT_PACKAGES += libaudio-resampler
+#ifneq ($(strip $(MTK_AUDIO_TUNING_TOOL_VERSION)),V1)
+PRODUCT_PACKAGES += libem_audio_jni
+#ifeq ($(strip $(MTK_AUDIO_DDPLUS_SUPPORT)), yes)
+PRODUCT_COPY_FILES += device/umi/MAX/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
+PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml
+#Audio config
+PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_param/DSM_config.xml:system/etc/DSM_config.xml
+PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_param/DSM.xml:system/etc/DSM.xml
+PRODUCT_PACKAGES += libfvaudio
+PRODUCT_PACKAGES += AudioSetParam
+
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/bluetooth/auto_pair_devlist.conf:system/etc/bluetooth/auto_pair_devlist.conf
@@ -194,19 +222,12 @@ PRODUCT_PACKAGES += libvc1dec_sa.ca7
 PRODUCT_PACKAGES += libvp8dec_sa.ca7
 PRODUCT_PACKAGES += libvp8enc_sa.ca7
 PRODUCT_PACKAGES += libvp9dec_sa.ca7
-PRODUCT_PACKAGES += audio.primary.default
-PRODUCT_PACKAGES += audio.primary.mt6755
-PRODUCT_PACKAGES += audio_policy.stub
-PRODUCT_PACKAGES += local_time.default
-PRODUCT_PACKAGES += libaudiocustparam
+PRODUCT_PACKAGES += local_time.defaultì
 PRODUCT_PACKAGES += libvcodec_oal
 PRODUCT_PACKAGES += liblic_divx
 PRODUCT_PACKAGES += liblic_s263
 PRODUCT_PACKAGES += init.factory.rc
-PRODUCT_PACKAGES += libaudio.primary.default
-PRODUCT_PACKAGES += audio_policy.default
 PRODUCT_PACKAGES += audio_policy.mt6755
-PRODUCT_PACKAGES += libaudio.a2dp.default
 PRODUCT_PACKAGES += libMtkVideoTranscoder
 PRODUCT_PACKAGES += libMtkOmxCore
 #PRODUCT_PACKAGES += libI420colorconvert
@@ -244,7 +265,6 @@ PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_googl
 PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg
 
@@ -380,3 +400,5 @@ PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.sensor.stepdet
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Vendor product configurations
 $(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)
+#
+$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/product_package.mk)
