@@ -394,6 +394,23 @@ PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.touchscreen.xm
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:system/etc/permissions/android.hardware.sensor.stepcounter.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:system/etc/permissions/android.hardware.sensor.stepdetector.xml
 
+# SensorHub
+PRODUCT_PACKAGES += SensorHub
+
+# Add for common service initialization
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.common_svc.rc:root/init.common_svc.rc
+
+# M: GMO Zygote64 on demand @{
+# 1 = support secondary zygote on demand, 0 = not support
+PRODUCT_PROPERTY_OVERRIDES += ro.mtk_gmo_zygote_on_demand=1
+# 1 = full preload, 0 = no preload
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.mtk_zygote_preload=0
+# the time to stop secondary zygote after the last forked process has been killed, in seconds
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.mtk_zygote_timeout=60
+# 1 = enable debug, 0 = disable debug
+PRODUCT_PROPERTY_OVERRIDES += persist.sys.mtk_zygote_debug=0
+# include init.zygote_on_demand.rc
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.zygote_on_demand.rc:root/init.zygote_on_demand.rc
 ###########################################################################################
 
 # Inherit common configurations from los sources

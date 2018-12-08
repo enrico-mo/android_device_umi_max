@@ -29,6 +29,13 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
 # Variants
 TARGET_OTA_ASSERT_DEVICE := MAX,max,UMI,umi,c239v55_kw
 
+# Set target and base project for flavor build
+MTK_TARGET_PROJECT := $(subst lineage_,,$(TARGET_PRODUCT))
+MTK_BASE_PROJECT := $(MTK_TARGET_PROJECT)
+MTK_PROJECT_FOLDER := $(shell find device/* -maxdepth 1 -name $(MTK_BASE_PROJECT))
+MTK_TARGET_PROJECT_FOLDER := $(shell find device/* -maxdepth 1 -name $(MTK_TARGET_PROJECT))
+#include $(MTK_TARGET_PROJECT_FOLDER)/ProjectConfig.mk
+
 # Mediatek support
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
@@ -63,6 +70,9 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_NO_FACTORYIMAGE := true
+KERNELRELEASE := 3.4
 
 # Inline Kernel
 #BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
@@ -131,7 +141,8 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 1
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 MTK_HWC_SUPPORT := yes
-MTK_HWC_VERSION := 1.4.1
+#MTK_HWC_VERSION := 1.4.1
+MTK_HWC_VERSION := 1.5.0
 VSYNC_EVENT_PHASE_OFFSET_NS := 0
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0
 
@@ -172,6 +183,22 @@ TARGET_NO_BOOTLOADER := true
 
 # Power
 BOARD_CHARGER_SHOW_PERCENTAGE := true
+
+# ptgen
+# Add MTK's MTK_PTGEN_OUT definitions
+ifeq (,$(strip $(OUT_DIR)))
+  ifeq (,$(strip $(OUT_DIR_COMMON_BASE)))
+    MTK_PTGEN_OUT_DIR := $(TOPDIR)out
+  else
+    MTK_PTGEN_OUT_DIR := $(OUT_DIR_COMMON_BASE)/$(notdir $(PWD))
+  endif
+else
+    MTK_PTGEN_OUT_DIR := $(strip $(OUT_DIR))
+endif
+MTK_PTGEN_PRODUCT_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)
+MTK_PTGEN_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
+MTK_PTGEN_MK_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
+MTK_PTGEN_TMP_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN_TMP
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.mt6755
