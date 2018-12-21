@@ -186,19 +186,19 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # ptgen
 # Add MTK's MTK_PTGEN_OUT definitions
-ifeq (,$(strip $(OUT_DIR)))
-  ifeq (,$(strip $(OUT_DIR_COMMON_BASE)))
-    MTK_PTGEN_OUT_DIR := $(TOPDIR)out
-  else
-    MTK_PTGEN_OUT_DIR := $(OUT_DIR_COMMON_BASE)/$(notdir $(PWD))
-  endif
-else
-    MTK_PTGEN_OUT_DIR := $(strip $(OUT_DIR))
-endif
-MTK_PTGEN_PRODUCT_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)
-MTK_PTGEN_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
-MTK_PTGEN_MK_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
-MTK_PTGEN_TMP_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN_TMP
+#ifeq (,$(strip $(OUT_DIR)))
+#  ifeq (,$(strip $(OUT_DIR_COMMON_BASE)))
+#    MTK_PTGEN_OUT_DIR := $(TOPDIR)out
+#  else
+#    MTK_PTGEN_OUT_DIR := $(OUT_DIR_COMMON_BASE)/$(notdir $(PWD))
+#  endif
+#else
+#    MTK_PTGEN_OUT_DIR := $(strip $(OUT_DIR))
+#endif
+#MTK_PTGEN_PRODUCT_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)
+#MTK_PTGEN_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
+#MTK_PTGEN_MK_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
+#MTK_PTGEN_TMP_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN_TMP
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.mt6755

@@ -20,18 +20,13 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dal
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # FSTAB
-PRODUCT_COPY_FILES += device/umi/MAX/rootdir/etc/fstab.mt6755:root/fstab.mt6755
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/fstab.mt6755:root/fstab.mt6755
 
 # MediaTek framework base modules
-PRODUCT_PACKAGES += mediatek-common
-PRODUCT_PACKAGES += mediatek-framework
-PRODUCT_PACKAGES += CustomPropInterface
-PRODUCT_PACKAGES += mediatek-telephony-common
-
-# Override the PRODUCT_BOOT_JARS to include the MediaTek system base modules for global access
-PRODUCT_BOOT_JARS += mediatek-common
-PRODUCT_BOOT_JARS += mediatek-framework
-PRODUCT_BOOT_JARS += mediatek-telephony-common
+#PRODUCT_PACKAGES += mediatek-common
+#PRODUCT_PACKAGES += mediatek-framework
+#PRODUCT_PACKAGES += CustomPropInterface
+#PRODUCT_PACKAGES += mediatek-telephony-common
 
 #AGPS
 PRODUCT_PACKAGES += LocationEM
@@ -40,11 +35,11 @@ PRODUCT_PACKAGES += mtk_agpsd
 PRODUCT_PACKAGES += libssladp
 PRODUCT_PACKAGES += cacerts_supl
 PRODUCT_PACKAGES += AutoDialer
-PRODUCT_COPY_FILES += device/umi/MAX/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 # Audio (TO BE TESTED: audio_policy_NXP.conf)
-PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_em.xml:system/etc/audio_em.xml
-PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_policy.conf:system/etc/audio_policy.conf
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_em.xml:system/etc/audio_em.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_device.xml:system/etc/audio_device.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_em.xml:system/etc/audio_em.xml
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf
@@ -138,11 +133,11 @@ PRODUCT_PACKAGES += libaudio-resampler
 #ifneq ($(strip $(MTK_AUDIO_TUNING_TOOL_VERSION)),V1)
 PRODUCT_PACKAGES += libem_audio_jni
 #ifeq ($(strip $(MTK_AUDIO_DDPLUS_SUPPORT)), yes)
-PRODUCT_COPY_FILES += device/umi/MAX/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml
 PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml
 #Audio config
-PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_param/DSM_config.xml:system/etc/DSM_config.xml
-PRODUCT_COPY_FILES += device/umi/MAX/configs/audio_param/DSM.xml:system/etc/DSM.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/DSM_config.xml:system/etc/DSM_config.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_param/DSM.xml:system/etc/DSM.xml
 PRODUCT_PACKAGES += libfvaudio
 PRODUCT_PACKAGES += AudioSetParam
 
@@ -291,7 +286,6 @@ PRODUCT_PACKAGES += power.mt6755
 # Radio dependencies
 PRODUCT_PACKAGES += muxreport
 PRODUCT_PACKAGES += terservice
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Ramdisk (REMOVED: init.nvdata.rc)
 PRODUCT_PACKAGES += enableswap.sh
@@ -342,7 +336,6 @@ PRODUCT_PACKAGES += pcm_vcorefs_ultra.bin
 
 # Telecomm
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Telephony
 SIM_COUNT := 2
@@ -359,8 +352,8 @@ PRODUCT_PACKAGES += gsm0710muxdmd2
 PRODUCT_PACKAGES += md_minilog_util
 PRODUCT_PACKAGES += BSPTelephonyDevTool
 PRODUCT_PACKAGES += ppl_agent
-PRODUCT_COPY_FILES += device/umi/MAX/configs/apns-conf.xml:system/etc/apns-conf.xml
-PRODUCT_COPY_FILES += device/umi/MAX/configs/spn-conf.xml:system/etc/spn-conf.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # USB
 PRODUCT_PACKAGES += librs_jni
@@ -418,4 +411,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Vendor product configurations
 $(call inherit-product, vendor/umi/MAX/MAX-vendor.mk)
 #
-$(call inherit-product-if-exists, device/umi/MAX/connectivity/product_package/product_package.mk)
+$(call inherit-product-if-exists, $(LOCAL_PATH)/connectivity/product_package/product_package.mk)
