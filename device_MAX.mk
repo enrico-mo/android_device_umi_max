@@ -23,10 +23,15 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwu
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/fstab.mt6755:root/fstab.mt6755
 
 # MediaTek framework base modules
-#PRODUCT_PACKAGES += mediatek-common
-#PRODUCT_PACKAGES += mediatek-framework
-#PRODUCT_PACKAGES += CustomPropInterface
-#PRODUCT_PACKAGES += mediatek-telephony-common
+PRODUCT_PACKAGES += mediatek-common
+PRODUCT_PACKAGES += mediatek-framework
+PRODUCT_PACKAGES += CustomPropInterface
+PRODUCT_PACKAGES += mediatek-telephony-common
+# Override the PRODUCT_BOOT_JARS to include the MediaTek system base modules for global access
+PRODUCT_BOOT_JARS += \
+    mediatek-common \
+    mediatek-framework \
+    mediatek-telephony-common
 
 #AGPS
 PRODUCT_PACKAGES += LocationEM
