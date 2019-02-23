@@ -24,6 +24,5 @@ for var in eng user userdebug; do
   add_lunch_combo lineage_MAX-$var
 done
 
-
 # Root Access embedded
 export WITH_SU=true

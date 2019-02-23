@@ -20,11 +20,9 @@ LOCAL_PATH := device/umi/MAX
 
 # Include Device vendor board
 include vendor/umi/MAX/BoardConfigVendor.mk
-# Use the connectivity Boardconfig
-include device/umi/MAX/connectivity/BoardConfig.mk
 
 #PRODUCT_PACKAGES += $(LOCAL_PATH)/rootdir/etc/init.recovery.mt6755.rc:root/init.recovery.mt6755.rc
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/build.prop.LITE
 
 # Variants
 TARGET_OTA_ASSERT_DEVICE := MAX,max,UMI,umi,c239v55_kw
@@ -39,15 +37,6 @@ MTK_TARGET_PROJECT_FOLDER := $(shell find device/* -maxdepth 1 -name $(MTK_TARGE
 # Mediatek support
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
-#disable kernel config sync check
-DISABLE_MTK_CONFIG_CHECK = yes
-
-MTK_INTERNAL_CDEFS := $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_NAME),$(if $(filter-out no NO none NONE false FALSE,$($(t))),-D$(t)))
-MTK_INTERNAL_CDEFS += $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_VALUE),$(if $(filter-out no NO none NONE false FALSE,$($(t))),$(foreach v,$(shell echo $($(t)) | tr '[a-z]' '[A-Z]'),-D$(v))))
-MTK_INTERNAL_CDEFS += $(foreach t,$(AUTO_ADD_GLOBAL_DEFINE_BY_NAME_VALUE),$(if $(filter-out no NO none NONE false FALSE,$($(t))),-D$(t)=\"$(strip $($(t)))\"))
-
-COMMON_GLOBAL_CFLAGS += $(MTK_INTERNAL_CDEFS)
-COMMON_GLOBAL_CPPFLAGS += $(MTK_INTERNAL_CDEFS)
 
 ##########################################################################################################
 #Architecture
@@ -64,24 +53,24 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_BOARD_PLATFORM := mt6755
 TARGET_BOARD_SUFFIX := _64
 TARGET_BOARD_PLATFORM_GPU := mali-t860mp2
-TARGET_USES_64_BIT_BINDER := true
 # Architecture Extensions
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 TARGET_NO_FACTORYIMAGE := true
-KERNELRELEASE := 3.4
+#KERNELRELEASE := 3.4
 
 # Inline Kernel
-#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 #TARGET_KERNEL_SOURCE := kernel/umi/MAX
 #TARGET_KERNEL_CONFIG := lineage_max_defconfig
-#TARGET_KERNEL_ARCH := arm64
-#TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-#TARGET_USES_64_BIT_BINDER := true
+TARGET_USES_64_BIT_BINDER := true
 
 # Prebuilt bootimg
 #BOARD_CUSTOM_BOOTIMG := true
@@ -97,8 +86,13 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 enforcing=0 androidboot.selinux=permissive
 #BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
+#BOARD_MKBOOTIMG_ARGS := --board 1465391499 --ramdisk_offset 0x04f88000 --second_offset 0x00e88000 --tags_offset 0x03f88000
 TARGET_KMODULES := true
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
+
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
@@ -117,9 +111,16 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 endif
 
 # Audio
-BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_USES_MTK_AUDIO := true
-BOARD_AGPS_SUPL_LIBRARIES := true
+
+# Disable memcpy opt (for audio libraries)
+TARGET_CPU_MEMCPY_OPT_DISABLE := true
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_MTK := true
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 
 # Bootanimation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -141,24 +142,21 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 1
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 MTK_HWC_SUPPORT := yes
-#MTK_HWC_VERSION := 1.4.1
-MTK_HWC_VERSION := 1.5.0
+MTK_HWC_VERSION := 1.4.1
+#MTK_HWC_VERSION := 1.5.0
 VSYNC_EVENT_PHASE_OFFSET_NS := 0
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 0
 
 # EGL
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
+USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-EXTENDED_FONT_FOOTPRINT := true
-TARGET_PROVIDES_INIT_RC := true
 
-# Filesystem
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+# Flags
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # GPS
 BOARD_GPS_LIBRARIES := true
@@ -169,6 +167,9 @@ BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 TARGET_PROVIDES_LIBLIGHT := true
 BOARD_USES_MTK_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
+
+# init
+TARGET_PROVIDES_INIT_RC := true
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216 #(16 MB)
@@ -184,29 +185,10 @@ TARGET_NO_BOOTLOADER := true
 # Power
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
-# ptgen
-# Add MTK's MTK_PTGEN_OUT definitions
-#ifeq (,$(strip $(OUT_DIR)))
-#  ifeq (,$(strip $(OUT_DIR_COMMON_BASE)))
-#    MTK_PTGEN_OUT_DIR := $(TOPDIR)out
-#  else
-#    MTK_PTGEN_OUT_DIR := $(OUT_DIR_COMMON_BASE)/$(notdir $(PWD))
-#  endif
-#else
-#    MTK_PTGEN_OUT_DIR := $(strip $(OUT_DIR))
-#endif
-#MTK_PTGEN_PRODUCT_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)
-#MTK_PTGEN_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
-#MTK_PTGEN_MK_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN
-#MTK_PTGEN_TMP_OUT := $(MTK_PTGEN_OUT_DIR)/target/product/$(MTK_TARGET_PROJECT)/obj/PTGEN_TMP
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.mt6755
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 BOARD_HAS_LARGE_FILESYSTEM := true
-
-# Release Tools
-TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/umi/MAX/ril
@@ -215,20 +197,32 @@ BOARD_CONNECTIVITY_MODULE := conn_soc
 # Screen
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Selinux
 BOARD_SEPOLICY_DIRS := \
        $(LOCAL_PATH)/sepolicy
 
+# WiFi
+BOARD_WLAN_DEVICE := MediaTek
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mt66xx
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_mt66xx
+WIFI_DRIVER_FW_PATH_PARAM := /dev/wmtWifi
+WIFI_DRIVER_FW_PATH_AP := AP
+WIFI_DRIVER_FW_PATH_STA := STA
+WIFI_DRIVER_FW_PATH_P2P := P2P
+WIFI_DRIVER_STATE_CTRL_PARAM := /dev/wmtWifi
+WIFI_DRIVER_STATE_ON := 1
+WIFI_DRIVER_STATE_OFF := 0
 
 # TWRP - OLD FLAGS
 #RECOVERY_VARIANT := twrp
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/soc/11270000.usb3/musb-hdrc/gadget/lun%d/file
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 BOARD_HAS_NO_SELECT_BUTTON := true
